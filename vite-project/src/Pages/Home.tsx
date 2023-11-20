@@ -1,4 +1,5 @@
 import About from "../Components/About"
+import AboutBottom from "../Components/AboutBottom"
 import Footer from "../Components/Footer"
 import Hero from "../Components/Hero"
 import LearnMore from "../Components/LearnMore"
@@ -11,7 +12,7 @@ const Home = () => {
       <Hero/>
       <About/>
       <NextPlace/>
-      <About/>
+      <AboutBottom/>
       <LearnMore/>
       <Testimonial/>
       <Footer/>
