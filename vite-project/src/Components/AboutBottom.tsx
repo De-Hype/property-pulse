@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Meeting_One from "../assets/Meeting_One.jpg";
+import Meeting_Two from "../assets/Meeting_Two.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const AboutBottom = () => {
@@ -23,7 +23,7 @@ const AboutBottom = () => {
           <FaLongArrowAltRight className="text-yellow-500" />
         </Link>
       </div>
-      <img src={Meeting_One} className="w-96 h-80  rounded-tl-3xl" alt="" />
+      <img src={Meeting_Two} className="w-96 h-80  rounded-tl-3xl" alt="" />
     </div>
   );
 };

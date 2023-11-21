@@ -7,7 +7,7 @@ const About = () => {
     <div className='flex gap-9 items-center pt-10'>
       <img src={Meeting_One} className="w-96 h-80  rounded-tr-3xl" alt="" />
       <div className="pr-20 flex flex-col items-start gap-3">
-        <h3 className="text-4xl font-extrabold">You're in good hands</h3>
+        <h3 className="text-4xl font-extrabold">About Us</h3>
         <p className=" text-base">
           Torquatos nostros? quos dolores eos, qui dolorem ipsum per se texit,
           ne ferae quidem se repellere, idque instituit docere sic: omne animal,

@@ -5,7 +5,7 @@ import Hero from "../Components/Hero"
 import LearnMore from "../Components/LearnMore"
 import NextPlace from "../Components/NextPlace"
 import Testimonial from "../Components/Testimonial"
-
+//Remember to change your oauth button type to button, and also set an onclick
 const Home = () => {
   return (
     <div>

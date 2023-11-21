@@ -4,13 +4,13 @@ import { FaSchool } from "react-icons/fa";
 import { FaCarRear, FaCcVisa } from "react-icons/fa6";
 const AllListing = () => {
   return (
-    <div className="mt-7 bg-white px-3 py-2 rounded-md flex items-center gap-5 shadow-sm border">
+    <div className="mt-7 bg-white px-3 py-4 rounded-md flex items-center gap-5 shadow-sm border">
         <div className="flex items-center gap-1">
-            <span className="text-xs font-semibold">See all listings</span>
+            <span className="text-xl font-semibold">See all listings</span>
             <FaLongArrowAltRight className='text-yellow-400'/>
         </div>
 
-        <div className="flex items-center gap-6 text-yellow-700">
+        <div className="flex items-center gap-6 ">
           <div className="flex items-center gap-2">
             <span className="font-bold ">250+ Houses</span>
             <MdOtherHouses className='font-bold text-lg'/>
