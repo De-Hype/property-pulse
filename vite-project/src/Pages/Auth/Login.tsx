@@ -29,6 +29,7 @@ export default function Login(){
         <div className="h-screen flex-col flex justify-center items-center gap-6">
 
             <div className=" flex gap-3 flex-col">
+                <h3 className="text-center font-bold text-2xl">Sign In</h3>
             <form onSubmit={(evt)=>submitForm(evt)} className="flex flex-col gap-4">
 
                 <input type="email" 

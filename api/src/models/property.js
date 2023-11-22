@@ -15,6 +15,7 @@ const propertySchema = new mongoose.Schema({
         type:number,
        // default willl be 1
     },
+
     address:{
         type:String,
         required:true,
@@ -32,6 +33,7 @@ const propertySchema = new mongoose.Schema({
         required:true,
     },
     poster:{
+        required:true,
         //this will make a reference to this poster
     }
 }, {timestamps})

@@ -24,6 +24,7 @@ export default function Register(){
         <div className="h-screen flex-col flex justify-center items-center gap-6">
             
             <div className=" flex gap-3 flex-col">
+                <h3 className="text-center font-bold text-2xl">Sign Up</h3>
             <form onSubmit={(evt)=>submitForm(evt)} className="flex flex-col gap-4">
                 <input type="text" 
                 name="name" 
@@ -66,7 +67,7 @@ export default function Register(){
                 <button className='bg-red-600 rounded-md w-full p-2 text-white text-sm'>Sign Up With Google</button>
                 <div className="self-center text-slate-500">
 
-                <Link className='decoration-black text-black text-center hover:text-slate-600' to='/login'>Sign In</Link> instead
+                <Link className='decoration-black text-black text-center hover:text-slate-600' to='/sign-in'>Sign In</Link> instead
                 </div>
             </div>
         </div>
