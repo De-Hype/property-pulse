@@ -1,6 +1,7 @@
 //Users will be able to access their profiles here
 //They can also see their listings on this page
 import { useState, ChangeEvent, FormEvent } from "react";
+import react from '../assets/react.svg'
 const Profile = () => {
   const [userData, setUserData] = useState({
     name: "",
@@ -8,6 +9,7 @@ const Profile = () => {
     phone: "",
     password: "",
   });
+
   //We will also fetch the pr
   const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setUserData({
@@ -24,19 +26,45 @@ const Profile = () => {
   };
   return (
     <div>
-      <img src="" className="" alt="" />
-      <form onSubmit={(evt) => submitForm(evt)} className="flex flex-col gap-4">
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={userData.email}
-          onChange={(evt) => handleInputChange(evt)}
-          className="border  w-96 p-2 border-slate-950 rounded-md outline-none text-black"
-          placeholder="Email"
-        />
-
-      </form>
+      <img src={react} className="" alt="" />
+      <form onSubmit={(evt)=>submitForm(evt)} className="flex flex-col gap-4">
+                <input type="text" 
+                name="name" 
+                id="name" 
+                value={userData.name} 
+                onChange={(evt)=>handleInputChange(evt)} 
+                className='border rounded-md border-slate-950 w-96 p-2  outline-none text-black'
+                placeholder='Name'
+                />
+                <input type="email" 
+                name="email" 
+                id="email" 
+                value={userData.email} 
+                onChange={(evt)=>handleInputChange(evt)} 
+                className='border  w-96 p-2 border-slate-950 rounded-md outline-none text-black'
+                placeholder='Email'
+                /> 
+                
+            <input type="text" 
+                name="phone" 
+                id="phone" 
+                value={userData.phone} 
+                onChange={(evt)=>handleInputChange(evt)} 
+                placeholder='Phone Number'
+                className='border  w-96 p-2 border-slate-950 rounded-md outline-none text-black' />
+               
+            <input type="password" 
+                name="password" 
+                id="password" 
+                value={userData.password} 
+                onChange={(evt)=>handleInputChange(evt)} 
+                className='border  w-96 p-2 border-slate-950 rounded-md outline-none text-black'
+                placeholder='Password'
+                />
+                <button type="submit" className="bg-black rounded-md p-3 cursor-pointer text-white hover:bg-slate-600">
+                    Sign Up
+                </button>
+            </form>
     </div>
   );
 };
