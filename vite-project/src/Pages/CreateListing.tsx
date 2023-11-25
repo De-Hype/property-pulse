@@ -1,9 +1,20 @@
 //Users will be able to create their listings here
 
+import { Link } from "react-router-dom";
+import { AiOutlineHome } from "react-icons/ai";
 const CreateListing = () => {
   return (
-    <div>
-      <h3 className="text-center font-bold text-3xl mt-6 text-yellow-950">Create A Listing</h3>
+    <div className="flex items-center flex-col gap-6">
+      <Link
+        to="/" 
+        className="flex mt-5 font-bold text-slate-600 items-center gap-1 hover:text-yellow-700 hover:underline"
+      >
+        <AiOutlineHome className="text-2xl" /> <span>Go Home</span>
+      </Link>
+
+      <h3 className="text-center font-bold text-3xl  text-yellow-950">
+        Create A Listing
+      </h3>
       <div className=" flex items-center justify-center">
         <form className="flex m-auto w-screen gap-6  px-8 mt-6">
           <div className="flex w-1/2 flex-col gap-5">

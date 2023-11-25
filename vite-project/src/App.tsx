@@ -19,7 +19,7 @@ function App() {
               <Route  path="/" element={<Home />} />
               <Route  path="/profile" element={<Profile />} />
               <Route  path="/create" element={<CreateListing />} />
-              <Route  path="/create" element={<SearchResultListing />} />
+              <Route  path="/search" element={<SearchResultListing />} />
               <Route  path="/my-listings" element={<MyListing />} />
               <Route  path="/about/:id" element={<AboutListing />} />
               <Route  path="/update-listing/:id" element={<UpdateListing />} />
