@@ -27,7 +27,7 @@ const Header = () => {
         </div>
         <Link
           to="/profile"
-          className="h-16 w-16 relative cursor-pointer bg-white rounded-full"
+          className="h-14 w-14 relative cursor-pointer bg-white rounded-full"
         >
           <img
             src={Testimony_One}
