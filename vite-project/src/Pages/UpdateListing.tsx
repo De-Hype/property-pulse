@@ -1,7 +1,9 @@
 
 const UpdateListing = () => {
   return (
-    <div>UpdateListing</div>
+    <div>
+        
+    </div>
   )
 }
 
