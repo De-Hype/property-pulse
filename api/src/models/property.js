@@ -8,11 +8,11 @@ const propertySchema = new mongoose.Schema({
         unique:true
     },
     rooms:{
-        type:number,
+        type:Number,
        // default willl be 1
     },
     bathrooms:{
-        type:number,
+        type:Number
        // default willl be 1
     },
 
@@ -23,23 +23,24 @@ const propertySchema = new mongoose.Schema({
     },
     location:{
         type:String,
-        required:true,
+        required:[true,'Location must be provided'],
     },
     type:{
+        type:String,
         enum:{values:['School', 'House', 'Destination'],
-        message:`$Does not match either of school, house or destination`
+        message:`{VALUE}Does not match either of school, house or destination`,
     }
     },
     price:{
-        type:number,
+        type:Number,
         required:true,
     },
     poster:{
-        ref:'user',
+        ref:'User',
         type:mongoose.Types.ObjectId,
         required:[true, "No product poster provided"]
         //this will make a reference to this poster
     }
-}, {timestamps})
+}, {timestamps:true})
 
-module.exports = mongoose.model('property', propertySchema)
+module.exports = mongoose.model('Property', propertySchema)

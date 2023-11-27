@@ -22,9 +22,9 @@ const userSchema = new mongoose.Schema({
     },
     property:{
         default:null,
-        ref:'property',
+        ref:'Property',
         type:[mongoose.Types.ObjectId],
         required:true
     }
-}, {timestamps})
-module.exports = mongoose.model('user', userSchema)
+}, {timestamps:true})
+module.exports = mongoose.model('User', userSchema)
