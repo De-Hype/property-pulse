@@ -31,7 +31,6 @@ const server = Connect()
   .then(() =>
     app.listen(Port, () => console.log(`Server runing on localhost ${Port}`))
   )
-  .catch(console.log("Error Occured"));
 
 //Handling unHandled Rejections
 process.on("unhandledRejection", (err) => {
