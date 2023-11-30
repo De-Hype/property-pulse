@@ -4,9 +4,10 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 
+const Connect = require("./src/utils/db");
 const globalErrorHandler = require("./src/controllers/errorController");
-const PropertyRoutes = require('./src/routes/property.routes');
-const UserRoutes = require('./src/routes/auth.routes');
+const PropertyRoutes = require("./src/routes/property.routes");
+const UserRoutes = require("./src/routes/auth.routes");
 
 const app = express();
 
@@ -20,15 +21,17 @@ process.on("uncaughtException", (err) => {
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
-app.use(morgan('dev'))
+app.use(morgan("dev"));
 app.use(globalErrorHandler);
-app.use('/api/property', PropertyRoutes);
-app.use('/api/user', UserRoutes );
+app.use("/api/property", PropertyRoutes);
+app.use("/api/user", UserRoutes);
 
 const Port = process.env.PORT || 7070;
-const server = app.listen(Port, () => {
-  console.log(`Server runing on localhost ${Port}`);
-});
+const server = Connect()
+  .then(() =>
+    app.listen(Port, () => console.log(`Server runing on localhost ${Port}`))
+  )
+  .catch(console.log("Error Occured"));
 
 //Handling unHandled Rejections
 process.on("unhandledRejection", (err) => {
@@ -38,11 +41,3 @@ process.on("unhandledRejection", (err) => {
     process.exit(1);
   });
 });
-
-
-
-// Connect().then(()=>
-//     app.listen(Port, ()=> console.log(`Server runing on localhost ${Port}`))
-// ).catch(
-//     console.log('Error Occured')
-// )
