@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
     },
     password:{
         type:String,
+        min:[4,'Password must be at least 4 characters'],
         required:true,
     },
     property:{
