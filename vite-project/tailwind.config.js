@@ -14,7 +14,13 @@ export default {
     extend: {
       backgroundImage:{
         'hero-image':"url('./src/assets/Hero_assets.jpg')"
-      }
+      },
+      screens:{
+      phones:'310px',
+      tablet:'640px',
+      laptop:'1024px',
+      desktop:'1280px',
+    },
     },
   },
   plugins: [],

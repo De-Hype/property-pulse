@@ -33,6 +33,10 @@ module.exports.SignIn = catchAsync(async (req, res, next) => {
   if (!findUser) {
     return next(new AppError("User does not exist", 402));
   }
+  const isPasswordValid = await bcrypt.compare(password, findUser.password);
+  if (!isPasswordValid) {
+    return next(new AppError("Incorrect login details", 402));
+  }
   const user_auth = jwt.sign({ id: user._id }, process.env.Jwt_Secret_Key);
   res.cookie("user_auth", user_auth, {
     httpOnly: true,
@@ -44,4 +48,6 @@ module.exports.SignIn = catchAsync(async (req, res, next) => {
 
 module.exports.SignOut = catchAsync(async (req, res, next) => {});
 
-module.exports.GoogleOauth = catchAsync(async (req, res, next) => {});
+module.exports.GoogleOauth = catchAsync(async (req, res, next) => {
+    
+});

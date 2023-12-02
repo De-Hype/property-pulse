@@ -30,6 +30,7 @@ const SendErrorProd =(err, req, res)=>{
 module.exports = (err, req, res, next)=>{
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
+ 
 
     if (process.env.NODE_ENV === 'development'){
         SendErrorDev(err, req, res);
@@ -39,10 +40,12 @@ module.exports = (err, req, res, next)=>{
 
         //We will handle different errors here tho
         SendErrorProd(error, req, res);
-    } else{
+    } 
+    else{
+        // console.log('Error controller')
         return res.status(200).json({
             status:'error',
-            message:'We are neither in dev nor in production',
+            message:'Please set up production or  development in your env',
         });
     }
 }
