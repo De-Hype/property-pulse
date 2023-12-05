@@ -8,6 +8,7 @@ import SearchResultListing from "./Pages/SearchResultListing";
 import MyListing from "./Pages/MyListing";
 import AboutListing from "./Pages/AboutListing";
 import UpdateListing from "./Pages/UpdateListing";
+import Contact from "./Pages/Contact";
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
               <Route  path="/profile" element={<Profile />} />
               <Route  path="/create" element={<CreateListing />} />
               <Route  path="/search" element={<SearchResultListing />} />
+              <Route  path="/contact/:id/:id" element={<Contact />} />
               <Route  path="/my-listings" element={<MyListing />} />
               <Route  path="/about/:id" element={<AboutListing />} />
               <Route  path="/update-listing/:id" element={<UpdateListing />} />

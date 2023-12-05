@@ -5,6 +5,7 @@ const handleCastErrorDB =err=>{
     return new AppError(message, 400);
 }
 
+
 const SendErrorDev = (err, req, res)=>{
     return res.status(err.statusCode).json({
         status:err.status,
@@ -30,8 +31,7 @@ const SendErrorProd =(err, req, res)=>{
 module.exports = (err, req, res, next)=>{
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
- 
-
+    console.log(process.env.NODE_ENV);
     if (process.env.NODE_ENV === 'development'){
         SendErrorDev(err, req, res);
     } else if (process.env.NODE_ENV === 'production'){
@@ -43,7 +43,7 @@ module.exports = (err, req, res, next)=>{
     } 
     else{
         // console.log('Error controller')
-        return res.status(200).json({
+        return res.status(300).json({
             status:'error',
             message:'Please set up production or  development in your env',
         });

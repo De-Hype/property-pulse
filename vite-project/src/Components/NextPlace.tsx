@@ -9,6 +9,7 @@ import Cart_Three from "../assets/Cart_Three.jpg";
 import Cart_Four from "../assets/Cart_Four.jpg";
 import Cart_Five from "../assets/Cart_Five.jpg";
 import Cart_Six from "../assets/Cart_Six.jpg";
+import { Link } from "react-router-dom";
 const NextPlace = () => {
   return (
     <div className="px-20 bg-slate-50 py-16">
@@ -36,11 +37,11 @@ const NextPlace = () => {
 
         <div className="max-w-xl max-h-80 cursor-pointer  flex flex-col shadow-sm border  rounded-xl">
           <img src={Cart_One} alt="" className="w-full h-2/3 rounded-t-xl" />
-          <div className="w-full">
+          <div className="w-full h-full">
             <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
             <div className="flex items-center justify-between px-3 pb-1">
-              <button className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </button>
-              <button className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</button>
+              <Link to='/contact/1/1' className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </Link>
+              <Link to='/' className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</Link>
             </div>
             <div className="grid grid-cols-3 place-content-center border-t px-3">
               <div className="flex items-center pl-2 gap-2 pt-2 pb-3 border-r">
@@ -62,11 +63,11 @@ const NextPlace = () => {
 
         <div className="max-w-xl max-h-80 cursor-pointer flex flex-col shadow-sm border  rounded-xl">
           <img src={Cart_Two} alt="" className="w-full h-2/3 rounded-t-xl" />
-          <div className="w-full">
+          <div className="w-full h-full">
             <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
             <div className="flex items-center justify-between px-3 pb-1">
-              <button className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </button>
-              <button className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</button>
+            <Link to='/contact/1/1' className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </Link>
+              <Link to='/' className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</Link>
             </div>
             <div className="grid grid-cols-3 place-content-center border-t px-3">
               <div className="flex items-center pl-2 gap-2 pt-2 pb-3 border-r">
@@ -88,11 +89,11 @@ const NextPlace = () => {
 
         <div className="max-w-xl max-h-80 cursor-pointer flex flex-col shadow-sm border  rounded-xl">
           <img src={Cart_Three} alt="" className="w-full h-2/3 rounded-t-xl" />
-          <div className="w-full">
+          <div className="w-full h-full">
             <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
             <div className="flex items-center justify-between px-3 pb-1">
-              <button className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </button>
-              <button className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</button>
+            <Link to='/contact/1/1' className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </Link>
+              <Link to='/' className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</Link>
             </div>
             <div className="grid grid-cols-3 place-content-center border-t px-3">
               <div className="flex items-center pl-2 gap-2 pt-2 pb-3 border-r">
@@ -114,11 +115,11 @@ const NextPlace = () => {
 
         <div className="max-w-xl max-h-80 cursor-pointer flex flex-col shadow-sm border  rounded-xl">
           <img src={Cart_Four} alt="" className="w-full  h-2/3 rounded-t-xl" />
-          <div className="w-full">
+          <div className="w-full h-full">
             <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
             <div className="flex items-center justify-between px-3 pb-1">
-              <button className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </button>
-              <button className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</button>
+            <Link to='/contact/1/1' className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </Link>
+              <Link to='/' className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</Link>
             </div>
             <div className="grid grid-cols-3 place-content-center border-t px-3">
               <div className="flex items-center pl-2 gap-2 pt-2 pb-3 border-r">
@@ -140,11 +141,11 @@ const NextPlace = () => {
 
         <div className="max-w-xl max-h-80 cursor-pointer flex flex-col shadow-sm border  rounded-xl">
           <img src={Cart_Five} alt="" className="w-full h-2/3 rounded-t-xl" />
-          <div className="w-full">
+          <div className="w-full h-full">
             <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
             <div className="flex items-center justify-between px-3 pb-1">
-              <button className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </button>
-              <button className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</button>
+            <Link to='/contact/1/1' className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </Link>
+              <Link to='/' className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</Link>
             </div>
             <div className="grid grid-cols-3 place-content-center border-t px-3">
               <div className="flex items-center pl-2 gap-2 pt-2 pb-3 border-r">
@@ -166,11 +167,11 @@ const NextPlace = () => {
 
         <div className="max-w-xl  max-h-80 cursor-pointer flex flex-col shadow-sm border  rounded-xl">
           <img src={Cart_Six} alt="" className="h-2/3 w-full rounded-t-xl" />
-          <div className="w-full">
+          <div className="w-full h-full">
             <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
             <div className="flex items-center justify-between px-3 pb-1">
-              <button className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </button>
-              <button className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</button>
+            <Link to='/contact/1/1' className="bg-black flex items-center text-white px-2"> <AiOutlinePhone/>Contact </Link>
+              <Link to='/' className="flex items-center px-2 bg-yellow-500"><AiOutlineShoppingCart/>Purchase</Link>
             </div>
             <div className="grid grid-cols-3 place-content-center border-t px-3">
               <div className="flex items-center pl-2 gap-2 pt-2 pb-3 border-r">

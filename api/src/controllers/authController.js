@@ -51,3 +51,13 @@ module.exports.SignOut = catchAsync(async (req, res, next) => {});
 module.exports.GoogleOauth = catchAsync(async (req, res, next) => {
     
 });
+
+module.exports.GetAllUsers = catchAsync(async (req, res, next) => {
+    const AllUsers = []
+    if (AllUsers.length <= 0){
+      console.log(AllUsers.length)
+      return next(new AppError("No users found", 404));
+    }
+    console.log(AllUsers.length)
+    res.status(200).json({status:'ok', AllUsers})
+});
