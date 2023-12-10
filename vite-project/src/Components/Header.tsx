@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const Header = ({dark}) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate()
   // <nav className="flex items-center text-white gap-6 ">
   //       <Link to="/">Home</Link>
@@ -16,6 +17,7 @@ const Header = ({dark}) => {
   //     </nav>
   const handleSearch=(ev:React.FormEvent<HTMLFormElement>):void=>{
     ev.preventDefault();
+    console.log(searchTerm)
     navigate('/search')
   }
 
@@ -33,6 +35,7 @@ const Header = ({dark}) => {
             className="px-3 w-2/3 h-full py-2 bg-transparent border outline-none "
             name=""
             id=""
+            onChange={(ev)=>setSearchTerm(ev.target.value)}
           />
           
           <button className="cursor-pointer px-4  border bg-yellow-600 " type="submit">Search</button>
