@@ -28,7 +28,7 @@ const Header = ({dark}) => {
         <Logo />
       </Link>
 
-        <form onSubmit={(ev)=>handleSearch(ev)} className="flex-1 text-white flex px-5 ">
+        <form onSubmit={(ev)=>handleSearch(ev)} className={`${dark} ? "text-white" : 'text-black' flex-1  flex px-5 `} >
           <input
             type="text"
             placeholder="Search listings"
@@ -44,7 +44,7 @@ const Header = ({dark}) => {
 
       <div className="flex items-center gap-6">
         
-        <div className="flex items-center gap-3 font-semibold text-white">
+        <div  className={`${dark} ? "text-white" : 'text-black' flex items-center gap-3 font-semibold `}>
           <Link className="hover:text-yellow-100" to="/create">
             Create listings
           </Link>

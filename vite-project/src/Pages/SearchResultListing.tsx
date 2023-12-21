@@ -1,35 +1,23 @@
-const SearchResultListing = () => {
-  const handleSearch = (ev: React.FormEvent<HTMLFormElement>): void => {
-    ev.preventDefault();
-  };
-  return (
-    <div className="w-full flex flex-col">
-      <div className="flex items-center justify-center  bg-slate-600 py-3 ">
-        <form
-          onSubmit={(ev) => handleSearch(ev)}
-          className="w-2/3 flex text-white  "
-        >
-          <input
-            type="text"
-            placeholder="Search listings"
-            className="px-3 w-2/3 h-full py-2 bg-transparent border outline-none "
-            name=""
-            id=""
-          />
+import {
+  AiFillCar,
+  AiFillShop,
+  AiOutlineNumber,
+  AiOutlinePhone,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
+import { Link } from "react-router-dom";
+import Cart_Six from "../assets/Cart_Six.jpg";
+import Header from "../Components/Header";
 
-          <button
-            className="cursor-pointer px-4  border bg-yellow-600 "
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
-      </div>
-      <div className="flex">
-        <div className="w-11">
+const SearchResultListing = () => {
+  return (
+    <div className="w-full flex flex-col ">
+      <Header dark />
+      <div className="flex items-center min-h-[80vh] pl-5 ">
+        <div className="w-[30%] flex flex-col gap-4 self-start">
           <div className="flex gap-2">
-            <h3>Type</h3>
-            <div className="flex items-center  justify-between">
+            <h3 className="font-bold">Type:</h3>
+            <div className="flex items-center gap-3 justify-between">
               <div className="flex items-center gap-1">
                 <input type="checkbox" name="rent" id="rent" />
                 <span>Rent</span>
@@ -41,24 +29,170 @@ const SearchResultListing = () => {
             </div>
           </div>
           <div className="flex gap-2">
-          <h3>Property Type</h3>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
+            <h3 className="font-bold">Property Type:</h3>
+            <div className="flex items-center gap-3 justify-between">
+              <div className="flex gap-1 items-center">
                 <input type="checkbox" name="School" id="school" />
                 <span>School</span>
               </div>
-              <div className="flex items-center">
+              <div className="flex gap-1 items-center">
                 <input type="checkbox" name="houses" id="houses" />
                 <span>Houses</span>
               </div>
-              <div className="flex items-center">
+              <div className="flex gap-1 items-center">
                 <input type="checkbox" name="hotels" id="hotels" />
                 <span>Hotels</span>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-full bg-red-400">Lover</div>
+        <div className="w-[70%] pl-3 py-4 self-start min-h-[80vh] bg-[#f1eeee]">
+          <div className="grid grid-cols-3 gap-4 pr-4  h-full">
+            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+              <img
+                src={Cart_Six}
+                alt=""
+                className="w-full h-3/4 rounded-t-xl hover:scale-90"
+              />
+              <div className="w-full  h-1/4 ">
+                <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
+                <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
+                  <Link
+                    to="/contact/1/1"
+                    className="bg-black flex items-center text-white px-2"
+                  >
+                    <AiOutlinePhone />
+                    Contact
+                  </Link>
+                  <Link to="/" className="flex items-center px-2 bg-yellow-500">
+                    <AiOutlineShoppingCart />
+                    Purchase
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+              <img
+                src={Cart_Six}
+                alt=""
+                className="w-full h-3/4 rounded-t-xl hover:scale-90"
+              />
+              <div className="w-full  h-1/4 ">
+                <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
+                <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
+                  <Link
+                    to="/contact/1/1"
+                    className="bg-black flex items-center text-white px-2"
+                  >
+                    <AiOutlinePhone />
+                    Contact
+                  </Link>
+                  <Link to="/" className="flex items-center px-2 bg-yellow-500">
+                    <AiOutlineShoppingCart />
+                    Purchase
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+              <img
+                src={Cart_Six}
+                alt=""
+                className="w-full h-3/4 rounded-t-xl hover:scale-90"
+              />
+              <div className="w-full  h-1/4 ">
+                <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
+                <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
+                  <Link
+                    to="/contact/1/1"
+                    className="bg-black flex items-center text-white px-2"
+                  >
+                    <AiOutlinePhone />
+                    Contact
+                  </Link>
+                  <Link to="/" className="flex items-center px-2 bg-yellow-500">
+                    <AiOutlineShoppingCart />
+                    Purchase
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+              <img
+                src={Cart_Six}
+                alt=""
+                className="w-full h-3/4 rounded-t-xl hover:scale-90"
+              />
+              <div className="w-full  h-1/4 ">
+                <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
+                <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
+                  <Link
+                    to="/contact/1/1"
+                    className="bg-black flex items-center text-white px-2"
+                  >
+                    <AiOutlinePhone />
+                    Contact
+                  </Link>
+                  <Link to="/" className="flex items-center px-2 bg-yellow-500">
+                    <AiOutlineShoppingCart />
+                    Purchase
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+              <img
+                src={Cart_Six}
+                alt=""
+                className="w-full h-3/4 rounded-t-xl hover:scale-90"
+              />
+              <div className="w-full  h-1/4 ">
+                <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
+                <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
+                  <Link
+                    to="/contact/1/1"
+                    className="bg-black flex items-center text-white px-2"
+                  >
+                    <AiOutlinePhone />
+                    Contact
+                  </Link>
+                  <Link to="/" className="flex items-center px-2 bg-yellow-500">
+                    <AiOutlineShoppingCart />
+                    Purchase
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+              <img
+                src={Cart_Six}
+                alt=""
+                className="w-full h-3/4 rounded-t-xl hover:scale-90"
+              />
+              <div className="w-full  h-1/4 ">
+                <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
+                <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
+                  <Link
+                    to="/contact/1/1"
+                    className="bg-black flex items-center text-white px-2"
+                  >
+                    <AiOutlinePhone />
+                    Contact
+                  </Link>
+                  <Link to="/" className="flex items-center px-2 bg-yellow-500">
+                    <AiOutlineShoppingCart />
+                    Purchase
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
