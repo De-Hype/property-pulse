@@ -38,7 +38,7 @@ const SearchResultListing = () => {
               <div className="flex gap-1 items-center">
                 <input type="checkbox" name="houses" id="houses" />
                 <span>Houses</span>
-              </div>
+              </div> 
               <div className="flex gap-1 items-center">
                 <input type="checkbox" name="hotels" id="hotels" />
                 <span>Hotels</span>

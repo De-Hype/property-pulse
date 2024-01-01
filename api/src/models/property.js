@@ -7,6 +7,11 @@ const propertySchema = new mongoose.Schema({
         required:[true,'Name not provided'],
         unique:true
     },
+    imageUrls:{
+        [type:String,
+            required:[true,'Image url not provided'],
+            unique:true],
+    },
     rooms:{
         type:Number,
        // default willl be 1
