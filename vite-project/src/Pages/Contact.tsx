@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Header from "../Components/Header";
+// import Header from "../Components/Header";
 import Cart_Six from "../assets/Cart_Six.jpg";
 import {
   AiFillCar,
@@ -56,8 +56,8 @@ const Contact = () => {
               className="w-full resize-none border-slate-600 border outline-none px-3 py-2 rounded-md"
               placeholder="Enter message here..."
               id=""
-              cols="30"
-              rows="10"
+              // cols="30"
+              // rows="10"
             ></textarea>
             <button
               type="submit"

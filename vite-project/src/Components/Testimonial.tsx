@@ -4,9 +4,11 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 const Testimonial = () => {
   const [current, setCurrent] = useState(0);
   const previous = (e: React.DOMAttributes<HTMLButtonElement>) => {
+   console.log(e)
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
   const next = (e: React.DOMAttributes<HTMLButtonElement>) => {
+    console.log(e)
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
   return (

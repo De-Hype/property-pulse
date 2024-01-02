@@ -28,9 +28,9 @@ const CreateListing = () => {
             <textarea
               name="description"
               id="description"
-              cols="30"
+              // cols="30"
               placeholder="Description"
-              rows="10"
+              // rows="10"
               className=" rounded max-h-40 border outline-none py-2 px-3 resize-none"
             ></textarea>
             <input
