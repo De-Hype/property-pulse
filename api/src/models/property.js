@@ -8,9 +8,9 @@ const propertySchema = new mongoose.Schema({
         unique:true
     },
     imageUrls:{
-        [type:String,
+        type:String,
             required:[true,'Image url not provided'],
-            unique:true],
+            unique:true,
     },
     rooms:{
         type:Number,
