@@ -38,32 +38,68 @@ const MyListing = () => {
         </h3>
         <div className="grid grid-cols-4 gap-7">
           <Link to="/">
-            <img src={Cart_Five} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_Five}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
           <Link to="/">
-            <img src={Cart_Five} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_Five}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
 
           <Link to="/">
-            <img src={Cart_Five} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_Five}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
           <Link to="/">
-            <img src={Cart_One} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_One}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
           <Link to="/">
-            <img src={Cart_Two} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_Two}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
           <Link to="/">
-            <img src={Cart_Three} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_Three}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
           <Link to="/">
-            <img src={Cart_Four} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_Four}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
           <Link to="/">
-            <img src={Cart_Six} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_Six}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
           <Link to="/">
-            <img src={Cart_Seven} className="h-52 w-80 hover:scale-x-110" alt="" />
+            <img
+              src={Cart_Seven}
+              className="h-52 w-80 hover:scale-x-110"
+              alt=""
+            />
           </Link>
         </div>
       </div>
