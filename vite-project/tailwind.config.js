@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-     "./index.html", "./src/**/*.{js,ts,jsx,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
 
     // "./app/**/*.{js,ts,jsx,tsx,mdx}",
     // "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,15 +13,16 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage:{
-        'hero-image':"url('./src/assets/Hero_assets.jpg')"
+      backgroundImage: {
+        "hero-image": "url('./src/assets/Hero_assets.jpg')",
       },
-      screens:{
-      phones:'310px',
-      tablet:'640px',
-      laptop:'1024px',
-      desktop:'1280px',
-    },
+      screens: {
+        vsphones: "360px",
+        phones: "580px",
+        tablet: "768px",
+        laptop: "1024px",
+        desktop: "1280px",
+      },
     },
   },
   plugins: [],
