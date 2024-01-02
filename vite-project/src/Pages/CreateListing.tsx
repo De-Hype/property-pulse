@@ -16,8 +16,8 @@ const CreateListing = () => {
         Create A Listing
       </h3>
       <div className=" flex items-center justify-center">
-        <form className="flex m-auto w-screen gap-6  px-8 mt-6">
-          <div className="flex w-1/2 flex-col gap-5">
+        <form className="flex m-auto w-screen gap-6 tablet:m-0 px-8 mt-6 tablet:flex-col">
+          <div className="flex w-1/2 tablet:w-full flex-col gap-5">
             <input
               type="text"
               className=" rounded border outline-none py-2 px-3"
@@ -95,7 +95,7 @@ const CreateListing = () => {
               />
             </div>
           </div>
-          <div className=" flex w-1/2 flex-col gap-5">
+          <div className=" flex w-1/2 tablet:w-full flex-col gap-5">
             <div className="flex rounded justify-between items-center border px-1">
               <input type="file" name="images" id="images" />
               <button
