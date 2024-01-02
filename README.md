@@ -41,6 +41,16 @@ The backend utilizes Node.js, JavaScript, and Express.js as the framework. To ru
 ```bash
 cd api
 ```
+Having entired the api directory, it is now time to add your secret files
+Create an .env file and have the following names 
+```bash
+Mongo_Uri = 
+Jwt_Secret_Key = 
+clientID = 
+clientSecret = 
+NODE_ENV = production || development
+```
+Now you can go ahead to the rest of the process, and get the api up and runing by using the following commands
 ```javascript
 npm install
 ```
