@@ -3,7 +3,9 @@
 
 ## Description
 
-Provide a concise overview of your project, outlining its purpose, features, and any key functionalities.
+Property pulse is a real estate marketplace where users can list the properties for lease or sell to other users.
+To be able to use the app, or contact any of the sellers, you must have created an account.
+Visit the sign up page to create an account, then log in.
 
 ## Table of Contents
 
