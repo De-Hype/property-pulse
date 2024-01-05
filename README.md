@@ -28,11 +28,7 @@ The frontend is built with React, TypeScript, and Tailwind CSS. To run the front
 
 ```bash
 cd vite-project
-```
-```javascript
 npm install
-```
-```javascript
 npm run dev
 ```
 
