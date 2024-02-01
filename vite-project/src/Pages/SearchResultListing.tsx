@@ -11,10 +11,10 @@ import Header from "../Components/Header";
 
 const SearchResultListing = () => {
   return (
-    <div className="w-full flex flex-col ">
+    <div className="w-full flex flex-col overflow-x-hidden ">
       <Header dark />
-      <div className="flex items-center min-h-[80vh] pl-5 ">
-        <div className="w-[30%] flex flex-col gap-4 self-start">
+      <div className="flex items-center flex-col min-h-[80vh] px-5">
+        <div className="w-full flex flex-col gap-4 self-start pb-5">
           <div className="flex gap-2">
             <h3 className="font-bold">Type:</h3>
             <div className="flex items-center gap-3 justify-between">
@@ -46,9 +46,9 @@ const SearchResultListing = () => {
             </div>
           </div>
         </div>
-        <div className="w-[70%] pl-3 py-4 self-start min-h-[80vh] bg-[#f1eeee]">
-          <div className="grid grid-cols-3 gap-4 pr-4  h-full">
-            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+        <div className="w-full px-3 py-4 self-start min-h-[80vh] bg-[#f1eeee]">
+          <div className="grid grid-cols-1 phones:grid-cols-2 laptop:grid-cols-3 gap-4 w-full  h-full">
+            <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
               <img
                 src={Cart_Six}
                 alt=""
@@ -72,7 +72,7 @@ const SearchResultListing = () => {
               </div>
             </div>
 
-            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+            <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
               <img
                 src={Cart_Six}
                 alt=""
@@ -96,7 +96,7 @@ const SearchResultListing = () => {
               </div>
             </div>
 
-            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+            <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
               <img
                 src={Cart_Six}
                 alt=""
@@ -120,7 +120,7 @@ const SearchResultListing = () => {
               </div>
             </div>
 
-            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+            <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
               <img
                 src={Cart_Six}
                 alt=""
@@ -144,7 +144,7 @@ const SearchResultListing = () => {
               </div>
             </div>
 
-            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+            <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
               <img
                 src={Cart_Six}
                 alt=""
@@ -168,7 +168,7 @@ const SearchResultListing = () => {
               </div>
             </div>
 
-            <div className="max-w-sm max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
+            <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
               <img
                 src={Cart_Six}
                 alt=""

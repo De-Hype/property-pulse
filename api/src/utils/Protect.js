@@ -8,7 +8,7 @@ const requireAuth = (req, res, next)=>{
             if (err){
                 return next(new AppError('Invalid token', 401))
             }
-            console.log(decodedToken)
+            
             next()
         })
     } 

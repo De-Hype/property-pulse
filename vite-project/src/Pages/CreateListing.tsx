@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 const CreateListing = () => {
   return (
-    <div className="flex items-center flex-col gap-6">
+    <div className="flex items-center flex-col gap-6 overflow-x-hidden">
       <Link
         to="/" 
         className="flex mt-5 font-bold text-slate-600 items-center gap-1 hover:text-yellow-700 hover:underline"
@@ -15,7 +15,7 @@ const CreateListing = () => {
       <h3 className="text-center font-bold text-3xl  text-yellow-950">
         Create A Listing
       </h3>
-      <div className=" flex items-center justify-center ">
+      <div className=" flex items-center justify-center mb-5">
         <form className="flex flex-col m-0  w-screen gap-6 tablet:flex-row tablet:m-auto px-8 mt-6 ">
           <div className="flex w-full tablet:w-1/2 flex-col gap-5">
             <input
@@ -116,6 +116,6 @@ const CreateListing = () => {
       </div>
     </div>
   );
-};
+};                                                                                                                                                                                                                        
 
 export default CreateListing;
