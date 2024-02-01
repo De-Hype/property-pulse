@@ -28,11 +28,7 @@ The frontend is built with React, TypeScript, and Tailwind CSS. To run the front
 
 ```bash
 cd vite-project
-```
-```javascript
 npm install
-```
-```javascript
 npm run dev
 ```
 
@@ -83,8 +79,7 @@ npm run server or run dev
 Adjust the directory paths and commands based on your project structure. Happy coding!
 
 ## Usage
-
-Explain how users can use your project. Include examples, code snippets, or screenshots to illustrate its functionality.
+Using this application is quite very simple. And with it, you can connect with various homeowners from all works of life.
 
 ## Features
 
