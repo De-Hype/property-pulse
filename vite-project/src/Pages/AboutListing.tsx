@@ -12,10 +12,12 @@ const AboutListing = () => {
     >
       <AiOutlineHome className="text-2xl" /> <span>Go Home</span>
     </Link>
-
     <h3 className="text-center font-bold text-3xl  text-yellow-950">
-      Create A Listing
+      About Listing
     </h3>
+    <div className="flex items-center flex-col">
+    <img src={} alt="" className="" />
+    </div>
     </div>
   )
 }

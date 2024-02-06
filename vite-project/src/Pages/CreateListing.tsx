@@ -2,7 +2,25 @@
 
 import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
+import axios from 'axios';
+import { useState } from "react";
+import { Server } from "../utils/Server";
 const CreateListing = () => {
+  const [data, setData] = useState({
+    name:"",
+    firebase_url:""
+  })
+  const handleUpload = async ()=>{
+    try{
+      const result = await axios.post(`${Server}/`);
+      if (result.data.status == 'ok' && result.data.success==true){
+        setData.firebase_url(result.data.photo_url)
+      }
+
+    }catch(error){
+      console.log(error)
+    }
+  }
   return (
     <div className="flex items-center flex-col gap-6 overflow-x-hidden">
       <Link
@@ -101,6 +119,7 @@ const CreateListing = () => {
               <button
                 className="py-3 px-4 border rounded border-yellow-800 hover:bg-yellow-700 hover:text-white"
                 type="button"
+                onClick={handleUpload}
               >
                 Upload
               </button>

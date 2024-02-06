@@ -1,0 +1,1 @@
+export const Server = import.meta.env.Server_URL
