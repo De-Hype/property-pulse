@@ -12,7 +12,7 @@ import Cart_Six from "../assets/Cart_Six.jpg";
 import { Link } from "react-router-dom";
 const NextPlace = () => {
   return (
-    <div className="px-20 bg-slate-50 py-16">
+    <div className="px-20 bg-slate-50 py-16 ">
       <span></span>
       <h3 className="font-bold text-2xl">Find your next place to live</h3>
       <div className="grid grid-cols-4 shadow-lg my-7 border px-3 rounded-md">
@@ -33,7 +33,7 @@ const NextPlace = () => {
           <FaAngleDown className='text-sm'/>
         </div>
       </div>
-      <div className=" grid grid-cols-3 w-full gap-3 ">
+      <div className=" grid  grid-cols-1 tablet:grid-cols-2 w-full gap-3 ">
 
         <div className="max-w-xl max-h-80 cursor-pointer  flex flex-col shadow-sm border  rounded-xl">
           <img src={Cart_One} alt="" className="w-full h-2/3 rounded-t-xl" />

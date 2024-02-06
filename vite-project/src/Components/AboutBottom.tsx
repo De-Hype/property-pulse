@@ -4,9 +4,9 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 const AboutBottom = () => {
   return (
-    <div className="flex gap-9 items-center pt-10">
+    <div className="flex gap-9 flex-col tablet:flex-row items-center pt-10">
 
-      <div className="pl-20 flex flex-col items-start gap-3">
+      <div className="pl-20 tablet:pr-0 pr-20 flex flex-col items-start gap-3">
         <h3 className="text-4xl font-extrabold">You're in good hands</h3>
         <p className=" text-base">
           Torquatos nostros? quos dolores eos, qui dolorem ipsum per se texit,

@@ -4,7 +4,7 @@ import AllListing from "../Layouts/AllListing";
 //bg-hero-image
 const Hero = () => {
   return (
-    <aside className="">
+    <aside className="overflow-x-hidden">
       <img src={Hero_assets} alt="" className="h-screen brightness-50 w-full" />
       <div className="absolute bottom-0 left-0 right-0 top-0">
         <Header />
