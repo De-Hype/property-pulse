@@ -9,6 +9,7 @@ import MyListing from "./Pages/MyListing";
 import AboutListing from "./Pages/AboutListing";
 import UpdateListing from "./Pages/UpdateListing";
 import Contact from "./Pages/Contact";
+import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
   
@@ -25,7 +26,7 @@ function App() {
               <Route  path="/my-listings" element={<MyListing />} />
               <Route  path="/about/:id" element={<AboutListing />} />
               <Route  path="/update-listing/:id" element={<UpdateListing />} />
-              
+              <Route path="*" element={<ErrorPage/>} />
               <Route  path="/sign-in" element={<Login />} />
               <Route  path="/register" element={<Register />} />
             </>
