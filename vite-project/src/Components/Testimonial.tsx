@@ -12,11 +12,11 @@ const Testimonial = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
   return (
-    <div className="mx-[250px]">
+    <div className="tablet:mx-[250px] px-5 tablet:px-0">
       <section className="flex py-14 justify-center items-center ">
         <div className="">
           <div className="pb-3">
-            <h2 className="text-xl text-slate-900 font-bold">
+            <h2 className=" text-base tablet:text-xl  text-slate-900 font-bold">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
               molestiae temporibus distinctio repellat modi alias molestias,
               veniam atque harum excepturi rem cumque, iure illum deserunt natus
@@ -28,15 +28,15 @@ const Testimonial = () => {
               <div className="">
                 <img
                   src={Testimony_One}
-                  className="h-24 w-24 rounded-full object-cover"
+                  className="tablet:h-24 h-16 w-16 tablet:w-24 rounded-full object-cover"
                   alt=""
                 />
               </div>
               <div className="">
-                <h2 className="text-slate-900 font-extrabold text-lg">
+                <h2 className="text-slate-900 font-extrabold text-sm tablet:text-lg ">
                   David Hype
                 </h2>
-                <span className="text-slate-900 font-semibold text-sm">
+                <span className="text-slate-900 font-semibold text-xs">
                   Project manager
                 </span>
               </div>
@@ -45,14 +45,14 @@ const Testimonial = () => {
               <button
                 onClick={() => previous}
                 type="button"
-                className=" rounded-full border text-3xl  py-3 px-3 hover:bg-yellow-700 hover:transition hover:text-white"
+                className=" rounded-full border tablet:text-3xl text-xl  py-3 px-3 hover:bg-yellow-700 hover:transition hover:text-white"
               >
                 <AiOutlineArrowLeft />
               </button>
               <button
                 onClick={() => next}
                 type="button"
-                className=" rounded-full border text-3xl  py-3 px-3 hover:bg-yellow-700 hover:transition hover:text-white"
+                className=" rounded-full border tablet:text-3xl text-xl py-3 px-3 hover:bg-yellow-700 hover:transition hover:text-white"
               >
                 <AiOutlineArrowRight />
               </button>

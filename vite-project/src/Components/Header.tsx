@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Layouts/Logo";
 import Button from "./Button";
 import Testimony_One from "../assets/Testimony_One.jpg";
-import { AiOutlineDown, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineDown, AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
 
 const Header = ({dark}) => {
@@ -23,12 +23,12 @@ const Header = ({dark}) => {
 
  
   return (
-    <header className="flex items-center justify-between py-5 px-20">
+    <header className="flex items-center justify-between py-5 px-10 tablet:px-20">
       <Link to="/">
         <Logo />
       </Link>
 
-        <form onSubmit={(ev)=>handleSearch(ev)} className={`${dark} ? "text-white" : 'text-black' flex-1  flex px-5 `} >
+        <form onSubmit={(ev)=>handleSearch(ev)} className={` tablet:flex hidden ${dark} ? "text-white" : 'text-black' flex-1 px-5 `} >
           <input
             type="text"
             placeholder="Search listings"
@@ -42,7 +42,7 @@ const Header = ({dark}) => {
         </form>
 
 
-      <div className="flex items-center gap-6">
+      <div className=" items-center gap-6 tablet:flex hidden">
         
         <div  className={`${dark} ? "text-white" : 'text-black' flex items-center gap-3 font-semibold `}>
           <Link className="hover:text-yellow-100" to="/create">
@@ -63,6 +63,8 @@ const Header = ({dark}) => {
           />
         </Link>
       </div>
+      <AiOutlineMenu className="tablet:hidden block text-xl pointer"/>
+
     </header>
   );
 };

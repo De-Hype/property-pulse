@@ -4,10 +4,10 @@ import Logo from "./Logo"
 
 const FooterBottom = () => {
   return (
-    <div className="grid grid-cols-4 mt-5">
+    <div className="grid sm:grid-cols-1 sm:place-items-center sm:gap-6 grid-cols-4 mt-5">
         <div className="">
             <Logo/>
-            <div className="flex gap-3 mt-4">
+            <div className="flex sm:justify-between gap-3 mt-4">
                 <Link to='/' className="text-2xl text-white"><AiOutlineGithub/></Link>
                 <Link to='/' className="text-2xl text-white"><AiOutlineLinkedin/></Link>
                 <Link to='/' className="text-2xl text-white"><AiOutlineWhatsApp/></Link>
