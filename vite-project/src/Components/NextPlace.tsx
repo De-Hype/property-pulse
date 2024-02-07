@@ -15,21 +15,21 @@ const NextPlace = () => {
     <div className="px-20 bg-slate-50 py-16 ">
       <span></span>
       <h3 className="font-bold text-2xl">Find your next place to live</h3>
-      <div className="grid grid-cols-4 shadow-lg my-7 border px-3 rounded-md">
-        <div className="flex items-center gap-2 border-r py-5 cursor-pointer ">
-          <span className="font-bold">Looking for</span>
+      <div className="grid grid-cols-4 shadow-lg my-7 border tablet:px-3 px-1 rounded-md">
+        <div className="flex items-center gap-2 border-r py-2 tablet:py-5 cursor-pointer ">
+          <span className="font-bold  text-xs tablet:tex-base">Looking for</span> 
           <FaAngleDown className='text-sm'/>
         </div>
         <div className="flex items-center gap-2 border-r pl-2 cursor-pointer">
-          <span className="font-bold">Location</span>
+          <span className="font-bold text-xs tablet:tex-base">Location</span>
           <FaAngleDown className='text-sm'/>
         </div>
         <div className="flex items-center gap-2 border-r pl-2 cursor-pointer">
-          <span className="font-bold">Property type</span>
+          <span className="font-bold text-xs tablet:tex-base">Property type</span>
           <FaAngleDown className='text-sm'/>
         </div>
-        <div className="flex items-center gap-2 pl-2  cursor-pointer">
-          <span className="font-bold">Price</span>
+        <div className="flex items-center gap-2 pr-2  cursor-pointer">
+          <span className="font-bold text-xs tablet:tex-base">Price</span>
           <FaAngleDown className='text-sm'/>
         </div>
       </div>

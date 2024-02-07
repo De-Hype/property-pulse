@@ -7,7 +7,7 @@ const AllListing = () => {
     <div className="mt-7 bg-white px-1 tablet:px-3 py-1 tablet:py-4 rounded-md flex items-center gap-5 shadow-sm border">
         <div className="flex items-center gap-1">
             <span className="text-sm tablet:text-xl font-semibold">See all listings</span>
-            <FaLongArrowAltRight className='text-yellow-400'/>
+            <FaLongArrowAltRight className='text-yellow-400 text-sm tablet:text-xl'/>
         </div>
 
         <div className="flex items-center gap-6 ">
