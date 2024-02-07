@@ -1,12 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Layouts/Logo";
-import Button from "./Button";
+//import Button from "./Button";
 import Testimony_One from "../assets/Testimony_One.jpg";
 import { AiOutlineDown, AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
 
-const Header = ({dark}) => {
-  const [showSearchInput, setShowSearchInput] = useState(false);
+interface HeaderProps{
+  dark:boolean;
+}
+
+const Header = ({dark}:HeaderProps) => {
+ // const [showSearchInput, setShowSearchInput] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate()
   // <nav className="flex items-center text-white gap-6 ">

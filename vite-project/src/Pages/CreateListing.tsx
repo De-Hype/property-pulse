@@ -5,8 +5,13 @@ import { AiOutlineHome } from "react-icons/ai";
 import axios from 'axios';
 import { useState } from "react";
 import { Server } from "../utils/Server";
+
+interface DataInterface {
+  name:string;
+  firebase_url:string;
+}
 const CreateListing = () => {
-  const [data, setData] = useState({
+  const [data, setData] = useState<DataInterface>({
     name:"",
     firebase_url:""
   })

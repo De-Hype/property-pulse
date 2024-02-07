@@ -1,7 +1,7 @@
 import {
-  AiFillCar,
-  AiFillShop,
-  AiOutlineNumber,
+  //AiFillCar,
+  //AiFillShop,
+ // AiOutlineNumber,
   AiOutlinePhone,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
