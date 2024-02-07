@@ -21,6 +21,7 @@ const CreateListing = () => {
       if (result.data.status == 'ok' && result.data.success==true){
         setData.firebase_url(result.data.photo_url)
       }
+      console.log(data)
 
     }catch(error){
       console.log(error)

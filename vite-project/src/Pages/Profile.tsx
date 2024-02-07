@@ -3,7 +3,7 @@
 import { useState, ChangeEvent, FormEvent, useRef } from "react";
 import react from "../assets/react.svg";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { AiOutlineHome } from "react-icons/ai";
 
 const Profile = () => {
@@ -27,6 +27,7 @@ const Profile = () => {
     evt.preventDefault();
     console.log(userData);
     try {
+      console.log(file)
     } catch (error) {}
   };
   const ChangeImage = (evt:React.ChangeEvent<HTMLInputElement>)=>{
