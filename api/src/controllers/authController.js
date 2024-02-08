@@ -46,18 +46,28 @@ module.exports.SignIn = catchAsync(async (req, res, next) => {
     .json({ status: "ok", message: "User succesfully logged in", findUser });
 });
 
-module.exports.SignOut = catchAsync(async (req, res, next) => {});
+module.exports.SignOut = catchAsync(async (req, res, next) => {
+
+});
 
 module.exports.GoogleOauth = catchAsync(async (req, res, next) => {
     
 });
 
 module.exports.GetAllUsers = catchAsync(async (req, res, next) => {
-    const AllUsers = []
+    const AllUsers = await users.find().select('-password')
     if (AllUsers.length <= 0){
       console.log(AllUsers.length)
       return next(new AppError("No users found", 404));
     }
     console.log(AllUsers.length)
-    res.status(200).json({status:'ok', AllUsers})
+    res.status(200).json({status:'ok', success:true, AllUsers})
 });
+
+module.exports.GetUserDetails =catchAsync(async (req, res, next)=>{
+  const foundUser = await user.findOne({_id:req.params.id});
+  if (!foundUser){
+    return next(new AppError("User not found", 404));
+  }
+  res.status(200).json({status:'ok', success:true, foundUser})
+})
