@@ -14,7 +14,6 @@ const firebaseConfig = require("../utils/firebase");
 
 module.exports.CreateListing = catchAsync(async (req, res, next) => {
   const {} = req.body;
-
 });
 module.exports.UploadImage = catchAsync(async (req, res, next) => {
   const file = req.file;
@@ -35,27 +34,32 @@ module.exports.UploadImage = catchAsync(async (req, res, next) => {
   });
 });
 module.exports.UpdateListing = catchAsync(async (req, res, next) => {
-  const userExist = await user.findById({_id: req.params.id}).select("-password");
+  const userExist = await user
+    .findById({ _id: req.params.id })
+    .select("-password");
 });
 module.exports.DeleteListing = catchAsync(async (req, res, next) => {
-  const userExist = await user.findById({_id: req.params.id}).select("-password");
+  const userExist = await user
+    .findById({ _id: req.params.id })
+    .select("-password");
 });
 module.exports.GetListingByUser = catchAsync(async (req, res, next) => {
-  const userExist = await user.findById({_id: req.params.id}).select("-password");
+  const userExist = await user
+    .findById({ _id: req.params.id })
+    .select("-password");
   if (!userExist) {
     next(new AppError("Invalid ID or user", 401));
   }
-   if (userExist.property == null){
+  if (userExist.property == null) {
     next(new AppError("User has no listing", 401));
-   }
-   await userExist.populate('Property');
+  }
+  await userExist.populate("Property");
   res.status(200).json({
     status: "ok",
     success: true,
     message: "Image stored on firebase successfully",
-    listings:userExist.property
+    listings: userExist.property,
   });
-  
 });
 
 module.exports.GetHomePageListing = catchAsync(async (req, res, next) => {
@@ -65,9 +69,25 @@ module.exports.GetHomePageListing = catchAsync(async (req, res, next) => {
     status: "ok",
     success: true,
     message: "Home product fetched successfully",
-    product:home_product
+    product: home_product,
   });
 });
 module.exports.SearchResultListing = catchAsync(async (req, res, next) => {
-  const {} = req.body;
+  const { searchTerm } = req.body;
+  if (searchTerm == "" || undefined) {
+    next(new AppError("Search term should not be empty", 401));
+  }
+  const found_product = await Property.find({
+    name: { $regex:searchTerm, $options: "i" },
+  });
+  if (found_product == 0) {
+    return res.json({ text: searchTerm, message: "No product found" });
+  }
+  res.status(200).json({
+    status: "ok",
+    success: true,
+    message: "Product found successfully",
+    text: searchTerm,
+    products: found_product,
+  });
 });
