@@ -2,35 +2,47 @@
 
 import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
-import axios from 'axios';
+import axios from "axios";
 import { useState } from "react";
 import { Server } from "../utils/Server";
 
 interface DataInterface {
-  name:string;
-  firebase_url:string;
+  name: string;
+  firebase_url: string;
 }
 const CreateListing = () => {
   const [data, setData] = useState<DataInterface>({
-    name:"",
-    firebase_url:""
-  })
-  const handleUpload = async ()=>{
-    try{
-      const result = await axios.post(`${Server}/`);
-      if (result.data.status == 'ok' && result.data.success==true){
-        setData.firebase_url(result.data.photo_url)
-      }
-      console.log(data)
+    name: "",
+    firebase_url: "",
+  });
+  const [firebase_url, setFirebase_url] = useState("");
+  const [name, setName] = useState("");
+  const handleUpload = async (e: any) => {
+    e.preventDefault();
 
-    }catch(error){
-      console.log(error)
+    try {
+      const result: any = await axios.post(`${Server}/`);
+      if (result.data.status == "ok" && result.data.success == true) {
+        setFirebase_url(result.data.photo_url);
+      }
+      console.log(data);
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const result: any = await axios.post(`${Server}/`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="flex items-center flex-col gap-6 overflow-x-hidden">
       <Link
-        to="/" 
+        to="/"
         className="flex mt-5 font-bold text-slate-600 items-center gap-1 hover:text-yellow-700 hover:underline"
       >
         <AiOutlineHome className="text-2xl" /> <span>Go Home</span>
@@ -40,7 +52,10 @@ const CreateListing = () => {
         Create A Listing
       </h3>
       <div className=" flex items-center justify-center mb-5">
-        <form className="flex flex-col m-0  w-screen gap-6 tablet:flex-row tablet:m-auto px-8 mt-6 ">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col m-0  w-screen gap-6 tablet:flex-row tablet:m-auto px-8 mt-6 "
+        >
           <div className="flex w-full tablet:w-1/2 flex-col gap-5">
             <input
               type="text"
@@ -64,7 +79,7 @@ const CreateListing = () => {
               className="border rounded outline-none py-2 px-3"
               placeholder="Address"
             />
-            <div className="flex items-center  justify-between">
+            <div className="flex items-center   justify-between">
               <div className="flex items-center gap-1">
                 <input type="checkbox" name="rent" id="rent" />
                 <span>Rent</span>
@@ -141,6 +156,6 @@ const CreateListing = () => {
       </div>
     </div>
   );
-};                                                                                                                                                                                                                        
+};
 
 export default CreateListing;

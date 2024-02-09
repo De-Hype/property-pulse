@@ -12,7 +12,7 @@ export const userSlice = createSlice({
     initialState,
     reducers:{
         increment:(state)=>{
-state.value +=1
+            state.value +=1
         },
         incrementByAmount:(state, action:PayloadAction<number>)=>{
             state.value += action.payload
