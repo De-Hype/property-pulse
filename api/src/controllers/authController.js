@@ -47,7 +47,10 @@ module.exports.SignIn = catchAsync(async (req, res, next) => {
 });
 
 module.exports.SignOut = catchAsync(async (req, res, next) => {
-
+  res.clearCookie('user_auth');
+  res
+    .status(202)
+    .json({ status: "ok", message: "User succesfully logged out" });
 });
 
 module.exports.GoogleOauth = catchAsync(async (req, res, next) => {

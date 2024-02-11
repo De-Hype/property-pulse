@@ -6,17 +6,13 @@ import axios from "axios";
 import { useState } from "react";
 import { Server } from "../utils/Server";
 
-interface DataInterface {
-  name: string;
-  firebase_url: string;
-}
+
 const CreateListing = () => {
-  const [data, setData] = useState<DataInterface>({
-    name: "",
-    firebase_url: "",
-  });
+  
   const [firebase_url, setFirebase_url] = useState("");
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [address, setAddress] = useState("");
   const handleUpload = async (e: any) => {
     e.preventDefault();
 
@@ -25,7 +21,7 @@ const CreateListing = () => {
       if (result.data.status == "ok" && result.data.success == true) {
         setFirebase_url(result.data.photo_url);
       }
-      console.log(data);
+      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -35,6 +31,7 @@ const CreateListing = () => {
 
     try {
       const result: any = await axios.post(`${Server}/`);
+      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -63,6 +60,7 @@ const CreateListing = () => {
               name="name"
               id="name"
               placeholder="Name"
+              onChange={(e)=>setName(e.target.value)}
             />
             <textarea
               name="description"
@@ -71,6 +69,7 @@ const CreateListing = () => {
               placeholder="Description"
               // rows="10"
               className=" rounded max-h-40 border outline-none py-2 px-3 resize-none"
+              onChange={(e)=>setDescription(e.target.value)}
             ></textarea>
             <input
               type="text"
@@ -78,6 +77,7 @@ const CreateListing = () => {
               id="address"
               className="border rounded outline-none py-2 px-3"
               placeholder="Address"
+              onChange={(e)=>setAddress(e.target.value)}
             />
             <div className="flex items-center   justify-between">
               <div className="flex items-center gap-1">

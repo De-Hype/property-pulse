@@ -11,10 +11,23 @@ const User = require("../models/user");
 const AppError = require("../utils/AppError");
 const catchAsync = require("../utils/catchAsync");
 const firebaseConfig = require("../utils/firebase");
+const { ValidateCreateListingSchema } = require("../utils/formValidation");
+
 
 module.exports.CreateListing = catchAsync(async (req, res, next) => {
-  const {} = req.body;
+ const {error, value} = ValidateCreateListingSchema(req.body);
+ if (error){
+  return next(new AppError(error.message, 400))
+ }
+ const name = value.name;
+ const nameExist = await Property.findOne({name});
+ if(nameExist){
+  return next(new AppError(`Listing with name ${name} already exist`, 400))
+ }
+ 
+
 });
+
 module.exports.UploadImage = catchAsync(async (req, res, next) => {
   const file = req.file;
   const filename = crypto.randomBytes(16).toString("hex");
@@ -34,19 +47,19 @@ module.exports.UploadImage = catchAsync(async (req, res, next) => {
   });
 });
 module.exports.UpdateListing = catchAsync(async (req, res, next) => {
-  const userExist = await user
+  const userExist = await User
     .findById({ _id: req.params.id })
-    .select("-password");
+   
 });
 module.exports.DeleteListing = catchAsync(async (req, res, next) => {
-  const userExist = await user
+  const userExist = await User
     .findById({ _id: req.params.id })
-    .select("-password");
+    
 });
 module.exports.GetListingByUser = catchAsync(async (req, res, next) => {
-  const userExist = await user
+  const userExist = await User
     .findById({ _id: req.params.id })
-    .select("-password");
+    
   if (!userExist) {
     next(new AppError("Invalid ID or user", 401));
   }
@@ -57,7 +70,7 @@ module.exports.GetListingByUser = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "ok",
     success: true,
-    message: "Image stored on firebase successfully",
+    message: "Users listings fetched successfully",
     listings: userExist.property,
   });
 });
