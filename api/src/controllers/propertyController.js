@@ -13,19 +13,34 @@ const catchAsync = require("../utils/catchAsync");
 const firebaseConfig = require("../utils/firebase");
 const { ValidateCreateListingSchema } = require("../utils/formValidation");
 
-
 module.exports.CreateListing = catchAsync(async (req, res, next) => {
- const {error, value} = ValidateCreateListingSchema(req.body);
- if (error){
-  return next(new AppError(error.message, 400))
- }
- const name = value.name;
- const nameExist = await Property.findOne({name});
- if(nameExist){
-  return next(new AppError(`Listing with name ${name} already exist`, 400))
- }
- 
+  const { error, value } = ValidateCreateListingSchema(req.body);
+  if (error) {
+    return next(new AppError(error.message, 400));
+  }
+  const name = value.name;
+  const nameExist = await Property.findOne({ name });
+  if (nameExist) {
+    return next(new AppError(`Listing with name ${name} already exist`, 400));
+  }
+  const createdProduct = await Property.create({
+    name: value.name,
+    description: value.description,
+    imageUrls: value.firebase_url,
+    address: value.address,
+    property_type: value.property_type,
+    type: value.type,
+    price: value.price,
+    years: value.years,
+    user:req.body.user
+  });
 
+  res.status(201).json({
+    status: "ok",
+    success: true,
+    message: "Listing created successfully",
+    listing: createdProduct,
+  });
 });
 
 module.exports.UploadImage = catchAsync(async (req, res, next) => {
@@ -47,19 +62,14 @@ module.exports.UploadImage = catchAsync(async (req, res, next) => {
   });
 });
 module.exports.UpdateListing = catchAsync(async (req, res, next) => {
-  const userExist = await User
-    .findById({ _id: req.params.id })
-   
+  const userExist = await User.findById({ _id: req.params.id });
 });
 module.exports.DeleteListing = catchAsync(async (req, res, next) => {
-  const userExist = await User
-    .findById({ _id: req.params.id })
-    
+  const userExist = await User.findById({ _id: req.params.id });
 });
 module.exports.GetListingByUser = catchAsync(async (req, res, next) => {
-  const userExist = await User
-    .findById({ _id: req.params.id })
-    
+  const userExist = await User.findById({ _id: req.params.id });
+
   if (!userExist) {
     next(new AppError("Invalid ID or user", 401));
   }
@@ -91,7 +101,7 @@ module.exports.SearchResultListing = catchAsync(async (req, res, next) => {
     next(new AppError("Search term should not be empty", 401));
   }
   const found_product = await Property.find({
-    name: { $regex:searchTerm, $options: "i" },
+    name: { $regex: searchTerm, $options: "i" },
   });
   if (found_product == 0) {
     return res.json({ text: searchTerm, message: "No product found" });
