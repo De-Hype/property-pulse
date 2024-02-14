@@ -25,7 +25,18 @@ const CreateListingSchema = Joi.object({
     price:Joi.number().min(15).required(),
     years:Joi.number().required(),
 })
+const UpdateListingSchema = Joi.object({ 
+    name:Joi.string().min(7).required(),
+    description:Joi.string().min(15).required(), 
+    address:Joi.string().min(15).required(), 
+    property_type:Joi.string().required(),
+    type:Joi.string().required(),
+    price:Joi.number().min(15).required(),
+    years:Joi.number().required(),
+})
+
 
 exports.ValidateSignUp= validator(SignUpSchema);
 exports.ValidateSignIn = validator(SignInSchema);
 exports.ValidateCreateListingSchema = validator(CreateListingSchema)
+exports.ValidateUpdateListingSchema = validator(UpdateListingSchema)

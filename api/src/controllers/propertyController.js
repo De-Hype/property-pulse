@@ -11,7 +11,7 @@ const User = require("../models/user");
 const AppError = require("../utils/AppError");
 const catchAsync = require("../utils/catchAsync");
 const firebaseConfig = require("../utils/firebase");
-const { ValidateCreateListingSchema } = require("../utils/formValidation");
+const { ValidateCreateListingSchema, ValidateUpdateListingSchema } = require("../utils/formValidation");
 
 module.exports.CreateListing = catchAsync(async (req, res, next) => {
   const { error, value } = ValidateCreateListingSchema(req.body);
@@ -32,7 +32,7 @@ module.exports.CreateListing = catchAsync(async (req, res, next) => {
     type: value.type,
     price: value.price,
     years: value.years,
-    user:req.body.user
+    user: req.cookie.user,
   });
 
   res.status(201).json({
@@ -62,14 +62,46 @@ module.exports.UploadImage = catchAsync(async (req, res, next) => {
   });
 });
 module.exports.UpdateListing = catchAsync(async (req, res, next) => {
-  const userExist = await User.findById({ _id: req.params.id });
+  const { error, value } = ValidateUpdateListingSchema(req.body);
+  if (error) {
+    return next(new AppError(error.message, 400));
+  }
+  //Checks for the listing and if user owns the listing on one DB request
+  const updatedListing = await Property.findOneAndUpdate(
+    { _id: req.params.id, poster: req.cookies.user_auth },
+    {
+      $set: {
+        name: value.name,
+        description: value.description,
+        address: value.address,
+        property_type: value.property_type,
+        type: value.type,
+        price: value.price,
+        years: value.years,
+      },
+    },
+    { new: true }
+  );
+  if (!updatedListing) {
+    return next(
+      new AppError(
+        `Listing with ID : ${req.params.id} and name : ${value.name} not found or you are not allowed to update this listing `,
+        403
+      )
+    );
+  }
+  res.status(200).json({
+    status: "ok",
+    success: true,
+    message: "Listing updated successfully",
+    listing: updatedListing,
+  });
 });
 module.exports.DeleteListing = catchAsync(async (req, res, next) => {
   const userExist = await User.findById({ _id: req.params.id });
 });
 module.exports.GetListingByUser = catchAsync(async (req, res, next) => {
   const userExist = await User.findById({ _id: req.params.id });
-
   if (!userExist) {
     next(new AppError("Invalid ID or user", 401));
   }
