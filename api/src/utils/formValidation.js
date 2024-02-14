@@ -15,7 +15,7 @@ const SignInSchema = Joi.object({
     password:Joi.string().min(6).max(30).required(),
 })
 
-const CreateListingSchema = Joi.object({
+const CreateListingSchema = Joi.object({ 
     name:Joi.string().min(7).required(),
     description:Joi.string().min(15).required(), 
     address:Joi.string().min(15).required(), 
