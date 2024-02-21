@@ -32,9 +32,8 @@ module.exports.CreateListing = catchAsync(async (req, res, next) => {
     type: value.type,
     price: value.price,
     years: value.years,
-    user: req.cookie.user,
+    user: req.cookie.user_auth,
   });
-
   res.status(201).json({
     status: "ok",
     success: true,
@@ -68,7 +67,7 @@ module.exports.UpdateListing = catchAsync(async (req, res, next) => {
   }
   //Checks for the listing and if user owns the listing on one DB request
   const updatedListing = await Property.findOneAndUpdate(
-    { _id: req.params.id, poster: req.cookies.user_auth },
+    { _id: req.params.id, poster: req.cookie.user_auth },
     {
       $set: {
         name: value.name,
@@ -98,7 +97,20 @@ module.exports.UpdateListing = catchAsync(async (req, res, next) => {
   });
 });
 module.exports.DeleteListing = catchAsync(async (req, res, next) => {
-  const userExist = await User.findById({ _id: req.params.id });
+  const deletedListing = await Property.findOneAndDelete({ _id: req.params.id, poster: req.cookie.user_auth });
+  if (!deletedListing) {
+    return next(
+      new AppError(
+        `Listing with ID : ${req.params.id} not found or you are not allowed to delete this listing `,
+        403
+      )
+    );
+  }
+  res.status(200).json({
+    status: "ok",
+    success: true,
+    message: "Listing has been deleted succesfully",
+  });
 });
 module.exports.GetListingByUser = catchAsync(async (req, res, next) => {
   const userExist = await User.findById({ _id: req.params.id });

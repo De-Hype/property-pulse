@@ -13,6 +13,7 @@ import { useState } from "react";
 const Header = ({dark}:boolean) => {
  // const [showSearchInput, setShowSearchInput] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+ 
   const navigate = useNavigate()
   // <nav className="flex items-center text-white gap-6 ">
   //       <Link to="/">Home</Link>
@@ -20,10 +21,22 @@ const Header = ({dark}:boolean) => {
   //       <Link to="/">Store</Link>
   //       <Button link={"/sign-in"} text={"Sign In"} />
   //     </nav>
-  const handleSearch=(ev:React.FormEvent<HTMLFormElement>):void=>{
+  const handleSearch=async (ev:React.FormEvent<HTMLFormElement>):void=>{
     ev.preventDefault();
-    console.log(searchTerm)
-    navigate('/search')
+   
+    try {
+      const result: any = await axios.post(`${Server}/`);
+      if (result.data.status == "ok" && result.data.success == true) {
+        setFirebase_url(result.data.photo_url);
+         console.log(searchTerm);
+         navigate('/search');
+
+      }
+
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
  
@@ -33,7 +46,7 @@ const Header = ({dark}:boolean) => {
         <Logo />
       </Link>
 
-        <form onSubmit={(ev)=>handleSearch(ev)} className={` tablet:flex hidden ${dark} ? "text-white" : 'text-black' flex-1 px-5 `} >
+        <form onSubmit={(ev)=>handleSearch(ev)} className={` tablet:flex hidden ${dark} ? " text-white" : 'text-black' flex-1 px-5 `} >
           <input
             type="text"
             placeholder="Search listings"

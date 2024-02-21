@@ -10,6 +10,7 @@ import Cart_Six from "../assets/Cart_Six.jpg";
 import Header from "../Components/Header";
 
 const SearchResultListing = () => {
+  
   return (
     <div className="w-full flex flex-col overflow-x-hidden ">
       <Header dark />

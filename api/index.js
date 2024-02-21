@@ -24,8 +24,8 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
-app.use("/api/property", PropertyRoutes);
-app.use("/api/auth", UserRoutes);
+app.use("/v1/api/property", PropertyRoutes);
+app.use("/v1/api/auth", UserRoutes);
 app.all("*", (req, res, next) => {
 
   next(

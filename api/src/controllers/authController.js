@@ -1,19 +1,19 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const catchAsync = require("../utils/catchAsync");
-const user = require("../models/user");
+const User = require("../models/user");
 const AppError = require("../utils/AppError");
 
 module.exports.SignUp = catchAsync(async (req, res, next) => {
   let { name, email, username, password } = req.body;
-  const findUser = await user.findOne({ email });
+  const findUser = await User.findOne({ email });
   if (findUser) {
     return next(new AppError("User already exist", 402));
   }
   const salt = await bcrypt.genSalt(8);
   const hashedPassword = await bcrypt.hash(password, salt);
 
-  const createUser = await user({
+  const createUser = await User({
     name,
     email,
     username,
@@ -29,7 +29,7 @@ module.exports.SignUp = catchAsync(async (req, res, next) => {
 
 module.exports.SignIn = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
-  const findUser = await user.findOne({ email });
+  const findUser = await User.findOne({ email });
   if (!findUser) {
     return next(new AppError("User does not exist", 402));
   }
@@ -37,9 +37,10 @@ module.exports.SignIn = catchAsync(async (req, res, next) => {
   if (!isPasswordValid) {
     return next(new AppError("Incorrect login details", 402));
   }
-  const user_auth = jwt.sign({ id: user._id }, process.env.Jwt_Secret_Key);
+  const user_auth = jwt.sign({ id: findUser._id }, process.env.Jwt_Secret_Key);
   res.cookie("user_auth", user_auth, {
     httpOnly: true,
+
   });
   res
     .status(202)
@@ -58,7 +59,7 @@ module.exports.GoogleOauth = catchAsync(async (req, res, next) => {
 });
 
 module.exports.GetAllUsers = catchAsync(async (req, res, next) => {
-    const AllUsers = await users.find().select('-password')
+    const AllUsers = await Users.find().select('-password')
     if (AllUsers.length <= 0){
       console.log(AllUsers.length)
       return next(new AppError("No users found", 404));
@@ -68,7 +69,7 @@ module.exports.GetAllUsers = catchAsync(async (req, res, next) => {
 });
 
 module.exports.GetUserDetails =catchAsync(async (req, res, next)=>{
-  const foundUser = await user.findOne({_id:req.params.id});
+  const foundUser = await User.findOne({_id:req.params.id});
   if (!foundUser){
     return next(new AppError("User not found", 404));
   }

@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Server } from "../utils/Server";
 
 
@@ -13,11 +13,12 @@ const UpdateListing = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
+  
   const handleUpload = async (e: any) => {
     e.preventDefault();
 
     try {
-      const result: any = await axios.post(`${Server}/`);
+      const result: any = await axios.post(`${Server}/property/upload-image`);
       if (result.data.status == "ok" && result.data.success == true) {
         setFirebase_url(result.data.photo_url);
       }
@@ -30,12 +31,31 @@ const UpdateListing = () => {
     e.preventDefault();
 
     try {
-      const result: any = await axios.post(`${Server}/`);
+      const result: any = await axios.post(`${Server}/property`);
       console.log(result);
     } catch (error) {
       console.log(error);
     }
   };
+  const FetchListing = async()=>{
+    try {
+      const result: any = await axios.post(`${Server}/`);
+      if (result.data.status == "ok" && result.data.success == true) {
+        setFirebase_url(result.data.photo_url);
+      }
+      console.log(result);
+    } catch (error) {
+     console.log(error) 
+    }
+  }
+  useEffect(() => {
+   FetchListing()
+  
+    return () => {
+      
+    }
+  }, [])
+  
   return (
     <div className="flex items-center flex-col gap-6 overflow-x-hidden">
       <Link
@@ -56,7 +76,7 @@ const UpdateListing = () => {
           <div className="flex w-full tablet:w-1/2 flex-col gap-5">
             <input
               type="text"
-              className=" rounded border outline-none py-2 px-3"
+              className=" rounded  border outline-none py-2 px-3"
               name="name"
               id="name"
               placeholder="Name"
