@@ -1,8 +1,11 @@
-// import {useSelector} from 'react-redux';
-// import { Outlet, Navigate } from "react-router-dom";
-// const ProtectedRoutes = () => {
+import { Outlet, Navigate } from "react-router-dom";
+import Cookies from "js-cookie";
+const ProtectedRoutes = () => {
+    const user = Cookies.get("pulse_user");
+  return (
+    user ? <Outlet /> : <Navigate to="/sign-in" />
+  )
+}
 
-//   return 
-// }
+export default ProtectedRoutes;
 
-// export default ProtectedRoutes;
