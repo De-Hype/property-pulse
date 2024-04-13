@@ -10,8 +10,8 @@ import AboutListing from "./Pages/AboutListing";
 import UpdateListing from "./Pages/UpdateListing";
 import Contact from "./Pages/Contact";
 import ErrorPage from "./Pages/ErrorPage";
-import { Toaster } from "sonner";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
+import { Toaster } from "sonner";
 
 function App() {
   return (
@@ -20,15 +20,15 @@ function App() {
         position="top-center"
         toastOptions={{
           unstyled: true,
-          className: {
-            error:
-              "bg-red-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
-            success:
-              "bg-green-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
-            info: "bg-blue-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
-            warning:
-              "bg-blue-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
-          },
+          // classNames: {
+          //   error:
+          //     "bg-red-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
+          //   success:
+          //     "bg-green-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
+          //   info: "bg-blue-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
+          //   warning:
+          //     "bg-blue-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
+          // },
         }}
       />
       <Router>
