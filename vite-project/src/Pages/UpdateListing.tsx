@@ -13,7 +13,7 @@ const UpdateListing = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
-  
+  console.log(firebase_url, name, description, address);
   const handleUpload = async (e: any) => {
     e.preventDefault();
 

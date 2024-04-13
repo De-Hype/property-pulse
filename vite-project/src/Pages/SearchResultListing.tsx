@@ -13,7 +13,7 @@ const SearchResultListing = () => {
   
   return (
     <div className="w-full flex flex-col overflow-x-hidden ">
-      <Header dark />
+      <Header  />
       <div className="flex items-center flex-col min-h-[80vh] px-5">
         <div className="w-full flex flex-col gap-4 self-start pb-5">
           <div className="flex gap-2">

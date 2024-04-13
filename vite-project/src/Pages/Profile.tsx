@@ -40,9 +40,9 @@ const Profile = () => {
   const DeleteAccount = async () => {
     console.log("You are trying to delete an account");
   };
-  const FetchDetails = async () => {
-    console.log("You have fetched the current log in details of the user");
-  };
+  // const FetchDetails = async () => {
+  //   console.log("You have fetched the current log in details of the user");
+  // };
   return (
     <div className="flex items-center justify-center ">
       <div className="mt-10 flex items-center flex-col gap-8">
