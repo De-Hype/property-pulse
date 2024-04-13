@@ -12,6 +12,8 @@ import Contact from "./Pages/Contact";
 import ErrorPage from "./Pages/ErrorPage";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
 import { Toaster } from "sonner";
+import About from "./Pages/About";
+import Store from "./Pages/Store";
 
 function App() {
   return (
@@ -35,11 +37,15 @@ function App() {
         <Routes>
           <>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/store" element={<Store />} />
             <Route path="*" element={<ErrorPage />} />
             <Route path="/sign-in" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about/:id" element={<AboutListing />} />
             <Route element={<ProtectedRoutes />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/create" element={<CreateListing />} />
               <Route path="/search" element={<SearchResultListing />} />

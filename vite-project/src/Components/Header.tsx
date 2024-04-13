@@ -21,7 +21,8 @@ const Header = () => {
     setMobileMenuShow(!mobileMenuShow);
   };
   const dark = true;
-  const user = Cookies.get("pulse_user");
+  //const user = Cookies.get("pulse_user");
+  const user = true;
   const navigate = useNavigate();
 
   const handleSearch = async (ev: React.FormEvent<HTMLFormElement>) => {
@@ -93,7 +94,7 @@ const Header = () => {
       ) : (
         <nav className=" items-center tablet:flex hidden text-white gap-6 ">
           <Link to="/">Home</Link>
-          <Link to="/">About</Link>
+          <Link to="/about">About</Link>
           <Link to="/">Store</Link>
           <Button link={"/sign-in"} text={"Sign In"} />
         </nav>
@@ -119,10 +120,10 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </p>
               <p className="bg-red- text-white text-center">
-                <Link to="/">About</Link>
+                <Link to="/about">About</Link>
               </p>
               <p className="bg-red- text-white text-center">
-                <Link to="/">Store</Link>
+                <Link to="/store">Store</Link>
               </p>
               <p className="bg-red- text-white text-center">
                 <Link to="/create">Create Listings</Link>
@@ -140,10 +141,10 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </p>
               <p className="bg-red- text-white text-center">
-                <Link to="/">About</Link>
+                <Link to="/about">About</Link>
               </p>
               <p className="bg-red- text-white text-center">
-                <Link to="/">Store</Link>
+                <Link to="/store">Store</Link>
               </p>
               <div className="flex items-center justify-center">
                 <Button link={"/sign-in"} text={"Sign In"} />

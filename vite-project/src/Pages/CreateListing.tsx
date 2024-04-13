@@ -1,5 +1,3 @@
-//Users will be able to create their listings here
-
 import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import axios from "axios";
@@ -8,7 +6,6 @@ import { Server } from "../utils/Server";
 
 
 const CreateListing = () => {
-  
   const [firebase_url, setFirebase_url] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");

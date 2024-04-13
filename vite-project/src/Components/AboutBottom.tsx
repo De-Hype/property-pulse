@@ -16,7 +16,7 @@ const AboutBottom = () => {
         </p>
 
         <Link
-          to="/"
+          to="/about"
           className="flex items-center gap-1 bg-black py-2 px-5 rounded-tr-lg"
         >
           <span className="text-sm text-white font-semibold">Learn more</span>
