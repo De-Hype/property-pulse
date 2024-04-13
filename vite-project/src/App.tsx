@@ -15,7 +15,7 @@ import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App relative">
       <Toaster
         position="top-center"
         toastOptions={{

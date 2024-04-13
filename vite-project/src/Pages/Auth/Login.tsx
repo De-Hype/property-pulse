@@ -2,6 +2,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { Server } from "../../utils/Server";
 import axios from "axios";
+import { toast } from "sonner";
 
 export default function Login() {
   const [userData, setUserData] = useState({
@@ -20,8 +21,10 @@ export default function Login() {
     console.log(userData);
     try {
       const result: Object = await axios.post(`${Server}/auth/login`, userData);
+      toast.success("User has logged in succesfully")
       console.log(result);
     } catch (error) {
+      toast.error("Error occured while logging in user")
       //Will Have to show a no internet connection error message here
       console.error(error);
     }

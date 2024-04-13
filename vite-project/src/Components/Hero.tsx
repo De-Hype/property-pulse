@@ -7,9 +7,9 @@ const Hero = () => {
     <aside className="overflow-x-hidden">
       <img src={Hero_assets} alt="" className="h-screen brightness-50 w-full" />
       <div className="absolute bottom-0 left-0 right-0 top-0">
-        <Header />
+        <Header  />
         <div className=" mt-10 items-center px-10 tablet:px-20">
-          <div className=" w-72 flex flex-col gap-6 text-white">
+          <div className="w-72 tab:w-full  flex flex-col gap-6 text-white">
             <h3 className="text-5xl font-bold ">Beautiful homes made for you</h3>
             <p className="tablet:text-lg">
               In oculis quidem se esse admonere interesse enim maxime placeat,

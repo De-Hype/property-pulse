@@ -23,6 +23,7 @@ export default {
         laptop: "1024px",
         desktop: "1280px",
         'sm':{'max':'520px'},
+        "tab":{'max':'768px'}
       },
     },
   },

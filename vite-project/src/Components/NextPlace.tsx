@@ -12,7 +12,7 @@ import Cart_Six from "../assets/Cart_Six.jpg";
 import { Link } from "react-router-dom";
 const NextPlace = () => {
   return (
-    <div className="px-20 bg-slate-50 py-16 ">
+    <div className="px-20 tab:px-5 bg-slate-50 py-16 ">
       <span></span>
       <h3 className="font-bold text-2xl">Find your next place to live</h3>
       <div className="grid grid-cols-4 shadow-lg my-7 border tablet:px-3 px-1 rounded-md">

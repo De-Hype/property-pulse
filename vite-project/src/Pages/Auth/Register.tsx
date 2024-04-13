@@ -2,13 +2,13 @@ import axios from "axios";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { Server } from "../../utils/Server";
+import { toast } from "sonner";
 // import axios from 'axios';
 export default function Register() {
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     phone: "",
-
     password: "",
   });
 
@@ -24,6 +24,7 @@ export default function Register() {
         const result: Object = await axios.post(`${Server}/auth/register`, userData);
         console.log(result);
       } catch (error) {
+        toast.error("An error occured while registering user")
         //Will Have to show a no internet connection error message here
         console.error(error);
       }

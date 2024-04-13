@@ -8,7 +8,7 @@ import Testimonial from "../Components/Testimonial"
 //Remember to change your oauth button type to button, and also set an onclick
 const Home = () => {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-x-hidden">
       <Hero/>
       <About/>
       <NextPlace/>
