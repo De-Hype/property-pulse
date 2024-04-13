@@ -11,7 +11,7 @@ export default function Register() {
     phone: "",
     password: "",
   });
- 
+
   const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setUserData({
       ...userData,
@@ -21,17 +21,20 @@ export default function Register() {
   const submitForm = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     try {
-        const result: Object = await axios.post(`${Server}/auth/register`, userData);
-        console.log(result);
-      } catch (error) {
-        toast.error("An error occured while registering user")
-        //Will Have to show a no internet connection error message here
-        console.error(error);
-      }
+      const result: Object = await axios.post(
+        `${Server}/auth/register`,
+        userData
+      );
+      console.log(result);
+    } catch (error) {
+      toast.error("An error occured while registering user");
+      //Will Have to show a no internet connection error message here
+      console.error(error);
+    }
   };
   return (
     <div className="h-screen flex-col flex justify-center items-center gap-6">
-      <div className=" flex gap-3 flex-col">
+      <div className=" flex gap-3 w-96 sm:w-full sm:px-5  flex-col">
         <h3 className="text-center font-bold text-2xl">Sign Up</h3>
         <form
           onSubmit={(evt) => submitForm(evt)}
@@ -43,7 +46,7 @@ export default function Register() {
             id="name"
             value={userData.name}
             onChange={(evt) => handleInputChange(evt)}
-            className="border rounded-md border-slate-950 w-96 p-2  outline-none text-black"
+            className="border rounded-md border-slate-950 w-full p-2  outline-none text-black"
             placeholder="Name"
           />
           <input
@@ -52,7 +55,7 @@ export default function Register() {
             id="email"
             value={userData.email}
             onChange={(evt) => handleInputChange(evt)}
-            className="border  w-96 p-2 border-slate-950 rounded-md outline-none text-black"
+            className="border  w-full p-2 border-slate-950 rounded-md outline-none text-black"
             placeholder="Email"
           />
 
@@ -63,7 +66,7 @@ export default function Register() {
             value={userData.phone}
             onChange={(evt) => handleInputChange(evt)}
             placeholder="Phone Number"
-            className="border  w-96 p-2 border-slate-950 rounded-md outline-none text-black"
+            className="border  w-full p-2 border-slate-950 rounded-md outline-none text-black"
           />
 
           <input
@@ -72,7 +75,7 @@ export default function Register() {
             id="password"
             value={userData.password}
             onChange={(evt) => handleInputChange(evt)}
-            className="border  w-96 p-2 border-slate-950 rounded-md outline-none text-black"
+            className="border  w-full p-2 border-slate-950 rounded-md outline-none text-black"
             placeholder="Password"
           />
           <button

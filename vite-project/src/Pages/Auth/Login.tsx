@@ -21,17 +21,17 @@ export default function Login() {
     console.log(userData);
     try {
       const result: Object = await axios.post(`${Server}/auth/login`, userData);
-      toast.success("User has logged in succesfully")
+      toast.success("User has logged in succesfully");
       console.log(result);
     } catch (error) {
-      toast.error("Error occured while logging in user")
+      toast.error("Error occured while logging in user");
       //Will Have to show a no internet connection error message here
       console.error(error);
     }
   };
   return (
     <div className="h-screen flex-col flex justify-center items-center gap-6">
-      <div className=" flex gap-3 flex-col">
+      <div className=" flex gap-3 w-96 sm:w-full sm:px-5  flex-col">
         <h3 className="text-center font-bold text-2xl">Sign In</h3>
         <form
           onSubmit={(evt) => submitForm(evt)}
@@ -43,7 +43,7 @@ export default function Login() {
             id="email"
             value={userData.email}
             onChange={(evt) => handleInputChange(evt)}
-            className="border  w-96 p-2 border-slate-950 rounded-md outline-none text-black"
+            className="border  w-full p-2 border-slate-950 rounded-md outline-none text-black"
             placeholder="Email"
           />
 
@@ -53,7 +53,7 @@ export default function Login() {
             id="password"
             value={userData.password}
             onChange={(evt) => handleInputChange(evt)}
-            className="border  w-96 p-2 border-slate-950 rounded-md outline-none text-black"
+            className="border  w-full p-2 border-slate-950 rounded-md outline-none text-black"
             placeholder="Password"
           />
           <button
