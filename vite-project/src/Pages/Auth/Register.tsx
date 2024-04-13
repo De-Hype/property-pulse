@@ -31,7 +31,7 @@ export default function Register() {
       //Will Have to show a no internet connection error message here
       console.error(error);
     }
-  };
+  }; 
   return (
     <div className="h-screen flex-col flex justify-center items-center gap-6">
       <div className=" flex gap-3 w-96 sm:w-full sm:px-5  flex-col">
