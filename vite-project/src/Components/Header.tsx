@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import { Server } from "../utils/Server";
 import axios from "axios";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import Button from "./Button";
 
 const Header = () => {
