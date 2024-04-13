@@ -11,7 +11,7 @@ export default function Register() {
     phone: "",
     password: "",
   });
-
+ 
   const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setUserData({
       ...userData,
