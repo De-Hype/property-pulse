@@ -45,7 +45,7 @@ const Profile = () => {
   // };
   return (
     <div className="flex items-center justify-center ">
-      <div className="mt-10 flex items-center flex-col gap-8">
+      {/* <div className="mt-10 flex items-center flex-col gap-8">
         <Link to="/" className="flex items-center gap-1 hover:text-yellow-700 hover:underline">
           <AiOutlineHome className='text-2xl' /> <span>Go Home</span>
         </Link>
@@ -120,7 +120,7 @@ const Profile = () => {
         >
           My listings
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,21 +1,11 @@
-import About from "../Components/About"
-import AboutBottom from "../Components/AboutBottom"
 import Footer from "../Components/Footer"
-import Hero from "../Components/Hero"
-import LearnMore from "../Components/LearnMore"
-import NextPlace from "../Components/NextPlace"
-import Testimonial from "../Components/Testimonial"
-//Remember to change your oauth button type to button, and also set an onclick
+import Header from "../Components/Header"
+
 const Home = () => {
   return (
     <div className="overflow-x-hidden">
-      <Hero/>
-      <About/>
-      <NextPlace/>
-      <AboutBottom/>
-      <LearnMore/>
-      <Testimonial/>
-      <Footer/>
+     <Header />
+     <Footer />
     </div>
   )
 }
