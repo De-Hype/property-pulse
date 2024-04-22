@@ -25,7 +25,8 @@ export default {
         'smphone':{'max':'310px'},
         'mobile':{'max':'390px'},
         'sm':{'max':'520px'},
-        "tab":{'max':'768px'}
+        "tab":{'max':'768px'},
+        "lap":{'max':'1280px'},
       },
     },
   },

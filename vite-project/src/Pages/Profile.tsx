@@ -1,45 +1,45 @@
 //Users will be able to access their profiles here
 //They can also see their listings on this page
-import { useState, ChangeEvent, FormEvent, useRef } from "react";
-import react from "../assets/react.svg";
-import { Link } from "react-router-dom";
-// import axios from "axios";
-import { AiOutlineHome } from "react-icons/ai";
+// import { useState, ChangeEvent, FormEvent, useRef } from "react";
+// import react from "../assets/react.svg";
+// import { Link } from "react-router-dom";
+// // import axios from "axios";
+// import { AiOutlineHome } from "react-icons/ai";
 
 const Profile = () => {
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
-  });
-  const [file, setFile] = useState<File | null>(null)
-  const fileRef = useRef<HTMLImageElement | unknown | any>(undefined);
+  // const [userData, setUserData] = useState({
+  //   name: "",
+  //   email: "",
+  //   phone: "",
+  //   password: "",
+  // });
+  // const [file, setFile] = useState<File | null>(null)
+  // const fileRef = useRef<HTMLImageElement | unknown | any>(undefined);
 
   //We will also fetch the pr
-  const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    setUserData({
-      ...userData,
-      [evt.target.name]: evt.target.value,
-    });
-  };
-  const submitForm = async (evt: FormEvent<HTMLFormElement>) => {
-    evt.preventDefault();
-    console.log(userData);
-    try {
-      console.log(file)
-    } catch (error) {}
-  };
-  const ChangeImage = (evt:React.ChangeEvent<HTMLInputElement>)=>{
-    if (!evt.target.files) return;
-    setFile(evt.target.files[0])
-  }
-  const LogOut = async () => {
-    console.log("You are trying to logout");
-  };
-  const DeleteAccount = async () => {
-    console.log("You are trying to delete an account");
-  };
+  // const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
+  //   setUserData({
+  //     ...userData,
+  //     [evt.target.name]: evt.target.value,
+  //   });
+  // };
+  // const submitForm = async (evt: FormEvent<HTMLFormElement>) => {
+  //   evt.preventDefault();
+  //   console.log(userData);
+  //   try {
+  //     console.log(file)
+  //   } catch (error) {}
+  // };
+  // const ChangeImage = (evt:React.ChangeEvent<HTMLInputElement>)=>{
+  //   if (!evt.target.files) return;
+  //   setFile(evt.target.files[0])
+  // }
+  // const LogOut = async () => {
+  //   console.log("You are trying to logout");
+  // };
+  // const DeleteAccount = async () => {
+  //   console.log("You are trying to delete an account");
+  // };
   // const FetchDetails = async () => {
   //   console.log("You have fetched the current log in details of the user");
   // };

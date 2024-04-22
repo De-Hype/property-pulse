@@ -17,7 +17,7 @@ import Store from "./Pages/Store";
 
 function App() {
   return (
-    <div className="App relative">
+    <div className="App relative   ">
       <Toaster
         position="top-center"
         toastOptions={{
