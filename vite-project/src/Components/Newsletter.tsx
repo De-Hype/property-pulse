@@ -23,7 +23,7 @@ const Newsletter = () => {
             onChange={(e)=>setInput(e.target.value)}
             className=" bg-inherit text-[#080614] w-full outline-none py-2 px-4 tab:bg-white tab:py-4 tab:rounded-lg tab:border tab:border-[#7065F0]"
           />
-          <input type="button" className="bg-[#7065F0] rounded-lg text-white font-medium px-5 py-2 tab:py-3" value="Submit" />
+          <input type="button" className="bg-[#7065F0] cursor-pointer rounded-lg text-white font-medium px-5 py-2 tab:py-3" value="Submit" />
         </form>
         <p className="text-center text-xs text-slate-500">
           Join <span className="text-purple-500 text-[13px]">10,000+</span> other landlords in our estatary community{" "}

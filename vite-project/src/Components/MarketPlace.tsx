@@ -51,7 +51,7 @@ const MarketPlace = () => {
         <div className="mt-8">
           <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-col sm:gap-7 tab:grid-cols-2 ">
             
-            <div className="rounded-md  transition-all hover:bg-white hover:shadow-md hover:border">
+            <div className="rounded-md cursor-pointer  transition-all hover:bg-white hover:shadow-md hover:border">
               <img src={Cart_One} className="h-[190px] w-full" alt="" />
               <div className="flex flex-col gap-1 bg-white px-2 py-2">
                 <div className="flex items-center justify-between">
@@ -71,7 +71,7 @@ const MarketPlace = () => {
                 </p>
               </div>
             </div>
-            <div className="rounded-md transition-all hover:bg-white hover:shadow-md hover:border">
+            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
               <img src={Cart_Two} className="h-[190px] w-full" alt="" />
               <div className="flex flex-col gap-1 bg-white px-2 py-2">
                 <div className="flex items-center justify-between">
@@ -91,7 +91,7 @@ const MarketPlace = () => {
                 </p>
               </div>
             </div>
-            <div className="rounded-md transition-all hover:bg-white hover:shadow-md hover:border">
+            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
               <img src={Cart_Three} className="h-[190px] w-full" alt="" />
               <div className="flex flex-col gap-1 bg-white px-2 py-2">
                 <div className="flex items-center justify-between">
@@ -111,7 +111,7 @@ const MarketPlace = () => {
                 </p>
               </div>
             </div>
-            <div className="rounded-md transition-all hover:bg-white hover:shadow-md hover:border">
+            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
               <img src={Cart_Four} className="h-[190px] w-full" alt="" />
               <div className="flex flex-col gap-1 bg-white px-2 py-2">
                 <div className="flex items-center justify-between">
@@ -131,7 +131,7 @@ const MarketPlace = () => {
                 </p>
               </div>
             </div>
-            <div className="rounded-md transition-all hover:bg-white hover:shadow-md hover:border">
+            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
               <img src={Cart_Five} className="h-[190px] w-full" alt="" />
               <div className="flex flex-col gap-1 bg-white px-2 py-2">
                 <div className="flex items-center justify-between">
@@ -151,7 +151,7 @@ const MarketPlace = () => {
                 </p>
               </div>
             </div>
-            <div className="rounded-md transition-all hover:bg-white hover:shadow-md hover:border">
+            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
               <img src={Cart_Six} className="h-[190px] w-full" alt="" />
               <div className="flex flex-col gap-1 bg-white px-2 py-2">
                 <div className="flex items-center justify-between">
@@ -176,7 +176,7 @@ const MarketPlace = () => {
           <div className="flex items-center justify-center mt-10">
             <Link
               className=" bg-[#7065F0] sm:w-full flex justify-center items-center rounded-md"
-              to="/"
+              to="/store"
             >
               <button
                 className=" px-4 py-2 rounded-md outline-none  text-white tab:"

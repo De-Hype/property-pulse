@@ -1,15 +1,24 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/Eastery/logo.svg";
-
+import heroTestimonial from "../assets/Eastery/heroTestimonial.png";
 import { AiOutlineCloseCircle, AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
+// import Cookies from "js-cookie";
+
 const Header = () => {
   const [show, setShow] = useState(false);
+  const [usershow, setUserShow] = useState(false);
   const handleMenuShow = () => {
     setShow(!show);
   };
+  const handleUserShow = () => {
+    console.log("Just overed");
+    setUserShow(!usershow);
+  };
+  //const user = Cookies.get("pulse_user");
+  const user = false;
   return (
-    <div className="bg-purple-50">
+    <header className="bg-purple-50">
       <div className="flex items-center justify-between px-6 py-3">
         <nav className="flex items-center gap-10">
           <Link to="/" className="flex items-center gap-2">
@@ -26,35 +35,75 @@ const Header = () => {
             <Link className="hover:text-purple-600 active:text-blue-400" to="/">
               Sell
             </Link>
-            <Link className="hover:text-purple-600 active:text-blue-400" to="/">
-              Manage property
+            <Link
+              className="hover:text-purple-600 active:text-blue-400"
+              to="/about"
+            >
+              About
             </Link>
-            <Link className="hover:text-purple-600 active:text-blue-400" to="/">
-              Blog
+            <Link
+              className="hover:text-purple-600 active:text-blue-400"
+              to="/store"
+            >
+              Store
             </Link>
           </nav>
         </nav>
-        <nav className="flex items-center gap-4 font-semibold tab:hidden">
-          <Link className="" to="/sign-in">
-            <button
-              className="px-4 py-2 text-slate-600 rounded-md outline-none border border-purple-700"
-              type="button"
+
+        {user ? (
+          <nav
+            id="user-header"
+            className=" tab:hidden relative"
+            onClick={handleUserShow}
+          >
+            <img
+              src={heroTestimonial}
+              className="h-14 w-14 rounded-full"
+              alt=""
+            />
+            <div
+              id="user-modal"
+              className={`absolute font-semibold z-50  shadow border rounded-xl px-7 py-5 gap-3 -left-20 top-[4.2rem] ${
+                usershow ? "flex" : "hidden"
+              } transition-all bg-white items-center flex-col`}
             >
-              Login
-            </button>
-          </Link>
-          <Link className="" to="/register">
-            <button
-              className="bg-purple-700 px-4 py-2 rounded-md outline-none border border-purple-700 text-white"
-              type="button"
-            >
-              Sign up
-            </button>
-          </Link>
-        </nav>
+              <Link to="/profile" className="hover:text-purple-400">
+                Profile
+              </Link>
+              <Link to="/settings" className="hover:text-purple-400">
+                Settings
+              </Link>
+              <button
+                type="button"
+                className="hover:text-purple-400 cursor-pointer"
+              >
+                Log out
+              </button>
+            </div>
+          </nav>
+        ) : (
+          <nav className="flex items-center gap-4 font-semibold tab:hidden">
+            <Link className="" to="/sign-in">
+              <button
+                className="px-4 py-2 text-slate-600 rounded-md outline-none border border-purple-700"
+                type="button"
+              >
+                Login
+              </button>
+            </Link>
+            <Link className="" to="/register">
+              <button
+                className="bg-purple-700 px-4 py-2 rounded-md outline-none border border-purple-700 text-white"
+                type="button"
+              >
+                Sign up
+              </button>
+            </Link>
+          </nav>
+        )}
         <AiOutlineMenu
           onClick={handleMenuShow}
-          className=" hidden tab:block font-black text-2xl"
+          className=" hidden cursor-pointer tab:block font-black text-2xl"
         />
       </div>
 
@@ -69,13 +118,13 @@ const Header = () => {
             <h3 className="font-bold text-lg">EASTERY</h3>
           </Link>
           <AiOutlineCloseCircle
-            className="  font-black text-2xl"
+            className=" cursor-pointer font-black text-2xl"
             onClick={handleMenuShow}
           />
         </div>
         <div className="flex flex-col gap-5 font-medium">
           <p className="text-center hover:text-purple-600 active:text-blue-400">
-            <Link to="/register">Rent</Link>
+            <Link to="/">Rent</Link>
           </p>
           <p className="text-center hover:text-purple-600 active:text-blue-400">
             <Link to="/">Buy</Link>
@@ -84,13 +133,13 @@ const Header = () => {
             <Link to="/">Sell</Link>
           </p>
           <p className="text-center hover:text-purple-600 active:text-blue-400">
-            <Link className="" to="/">
-              Manage property
+            <Link className="" to="/about">
+              About
             </Link>
           </p>
           <p className="text-center hover:text-purple-600 active:text-blue-400">
-            <Link className="" to="/blog">
-              Blog
+            <Link className="" to="/store">
+              Store
             </Link>
           </p>
           <p className="text-center hover:text-purple-600 active:text-blue-400">
@@ -98,14 +147,14 @@ const Header = () => {
               <button
                 className="px-4 py-2 text-slate-600 rounded-md outline-none border border-purple-700"
                 type="button"
-              > 
+              >
                 Login
               </button>
             </Link>
           </p>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

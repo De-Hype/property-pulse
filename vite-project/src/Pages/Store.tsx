@@ -1,176 +1,208 @@
 import Header from "../Components/Header";
 import Hero_assets from "../assets/Hero_assets.jpg";
-import {
-  //AiFillCar,
-  //AiFillShop,
-  // AiOutlineNumber,
-  AiOutlinePhone,
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
+import { MdFavoriteBorder } from "react-icons/md";
+import Cart_One from "../assets/Cart_One.jpg";
+import Cart_Two from "../assets/Cart_Two.jpg";
+import Cart_Three from "../assets/Cart_Three.jpg";
+import Cart_Four from "../assets/Cart_Four.jpg";
+import Cart_Five from "../assets/Cart_Five.jpg";
 import { Link } from "react-router-dom";
 import Cart_Six from "../assets/Cart_Six.jpg";
 import Footer from "../Components/Footer";
+import { useState } from "react";
 const Store = () => {
+  const [input, setInput] = useState("");
+  const handleNewsletterSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(input);
+  };
   return (
     <div className="overflow-x-hidden min-h-screen">
       <div className="">
         <img
           src={Hero_assets}
           alt=""
-          className="min-h-[250px] brightness-50 w-full"
+          className="max-h-[450px] brightness-50 w-full"
         />
-        <div className="absolute  bottom-0 left-0 right-0 top-0">
+        <div className="absolute  bottom- left-0 right-0 top-0">
           <Header />
           <div className="mt-10 flex items-center justify-center">
             <h3 className="text-center font-bold text-3xl  text-white">
-              Store
+              Estatery Store
             </h3>
           </div>
         </div>
       </div>
-      <div className="">
-        <div className="grid grid-cols-1 phones:grid-cols-2 laptop:grid-cols-3 gap-4 w-full  h-full">
-          <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
-            <img
-              src={Cart_Six}
-              alt=""
-              className="w-full h-3/4 rounded-t-xl hover:scale-90"
+      <div className="px-3 bg-purple-50">
+        <div className="flex items-center justify-center pt-10">
+          <form
+            onSubmit={handleNewsletterSubmit}
+            className="bg-white px-3 py-3 flex min-w-[600px] rounded-md tab:flex-col tab:bg-inherit tab:gap-3 tab:min-w-full"
+          >
+            <input
+              type="text"
+              name="newsletter"
+              id="newsletter"
+              placeholder="Search products here..."
+              onChange={(e) => setInput(e.target.value)}
+              className=" bg-inherit text-[#080614] w-full outline-none py-2 px-4 tab:bg-white tab:py-4 tab:rounded-lg tab:border tab:border-[#7065F0]"
             />
-            <div className="w-full  h-1/4 ">
-              <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
-              <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
-                <Link
-                  to="/contact/1/1"
-                  className="bg-black flex items-center text-white px-2"
-                >
-                  <AiOutlinePhone />
-                  Contact
-                </Link>
-                <Link to="/" className="flex items-center px-2 bg-yellow-500">
-                  <AiOutlineShoppingCart />
-                  Purchase
-                </Link>
+            <input
+              type="button"
+              className="bg-[#7065F0] rounded-lg cursor-pointer transition-all hover:bg-purple-800 text-white font-medium px-5 py-2 tab:py-3"
+              value="Search"
+            />
+          </form>
+        </div>
+        <div className="mt-8">
+          <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-col sm:gap-7 tab:grid-cols-2 ">
+            <Link
+              to="/about/2"
+              className="bg-white rounded-md cursor-pointer  transition-all hover:bg-white hover:shadow-md hover:border"
+            >
+              <img src={Cart_One} className="h-[190px] w-full" alt="" />
+              <div className="flex flex-col gap-1 bg-white px-2 py-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <h3 className="text-purple-600 font-bold text-lg">
+                      $2,095
+                    </h3>
+                    <p className="text-slate-500 text-sm">/month</p>
+                  </div>
+                  <div className="px-2 py-2 border rounded-full">
+                    <MdFavoriteBorder className=" text-purple-500" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold">Palm Harbour</h3>
+                <p className="text-xs text-slate-700">
+                  2699 Green Valley, Highland Lake, FL
+                </p>
               </div>
-            </div>
+            </Link>
+            <Link
+              to="/about/2"
+              className="bg-white rounded-md h-full cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border"
+            >
+              <img src={Cart_Two} className="h-[190px] w-full" alt="" />
+              <div className="flex flex-col gap-1 bg-white px-2 py-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <h3 className="text-purple-600 font-bold text-lg">
+                      $2,095
+                    </h3>
+                    <p className="text-slate-500 text-sm">/month</p>
+                  </div>
+                  <div className="px-2 py-2 border rounded-full">
+                    <MdFavoriteBorder className=" text-purple-500" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold">Palm Harbour</h3>
+                <p className="text-xs text-slate-700">
+                  2699 Green Valley, Highland Lake, FL
+                </p>
+              </div>
+            </Link>
+            <Link
+              to="/about/2"
+              className="bg-white rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border"
+            >
+              <img src={Cart_Three} className="h-[190px] w-full" alt="" />
+              <div className="flex flex-col gap-1 bg-white px-2 py-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <h3 className="text-purple-600 font-bold text-lg">
+                      $2,095
+                    </h3>
+                    <p className="text-slate-500 text-sm">/month</p>
+                  </div>
+                  <div className="px-2 py-2 border rounded-full">
+                    <MdFavoriteBorder className=" text-purple-500" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold">Palm Harbour</h3>
+                <p className="text-xs text-slate-700">
+                  2699 Green Valley, Highland Lake, FL
+                </p>
+              </div>
+            </Link>
+            <Link
+              to="/about/2"
+              className="bg-white rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border"
+            >
+              <img src={Cart_Four} className="h-[190px] w-full" alt="" />
+              <div className="flex flex-col gap-1 bg-white px-2 py-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <h3 className="text-purple-600 font-bold text-lg">
+                      $2,095
+                    </h3>
+                    <p className="text-slate-500 text-sm">/month</p>
+                  </div>
+                  <div className="px-2 py-2 border rounded-full">
+                    <MdFavoriteBorder className=" text-purple-500" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold">Palm Harbour</h3>
+                <p className="text-xs text-slate-700">
+                  2699 Green Valley, Highland Lake, FL
+                </p>
+              </div>
+            </Link>
+            <Link
+              to="/about/2"
+              className="bg-white rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border"
+            >
+              <img src={Cart_Five} className="h-[190px] w-full" alt="" />
+              <div className="flex flex-col gap-1 bg-white px-2 py-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <h3 className="text-purple-600 font-bold text-lg">
+                      $2,095
+                    </h3>
+                    <p className="text-slate-500 text-sm">/month</p>
+                  </div>
+                  <div className="px-2 py-2 border rounded-full">
+                    <MdFavoriteBorder className=" text-purple-500" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold">Palm Harbour</h3>
+                <p className="text-xs text-slate-700">
+                  2699 Green Valley, Highland Lake, FL
+                </p>
+              </div>
+            </Link>
+            <Link
+              to="/about/2"
+              className="bg-white rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border"
+            >
+              <img src={Cart_Six} className="h-[190px] w-full" alt="" />
+              <div className="flex flex-col gap-1 bg-white px-2 py-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <h3 className="text-purple-600 font-bold text-lg">
+                      $2,095
+                    </h3>
+                    <p className="text-slate-500 text-sm">/month</p>
+                  </div>
+                  <div className="px-2 py-2 border rounded-full">
+                    <MdFavoriteBorder className=" text-purple-500" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold">Palm Harbour</h3>
+                <p className="text-xs text-slate-700">
+                  2699 Green Valley, Highland Lake, FL
+                </p>
+              </div>
+            </Link>
           </div>
-
-          <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
-            <img
-              src={Cart_Six}
-              alt=""
-              className="w-full h-3/4 rounded-t-xl hover:scale-90"
-            />
-            <div className="w-full  h-1/4 ">
-              <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
-              <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
-                <Link
-                  to="/contact/1/1"
-                  className="bg-black flex items-center text-white px-2"
-                >
-                  <AiOutlinePhone />
-                  Contact
-                </Link>
-                <Link to="/" className="flex items-center px-2 bg-yellow-500">
-                  <AiOutlineShoppingCart />
-                  Purchase
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
-            <img
-              src={Cart_Six}
-              alt=""
-              className="w-full h-3/4 rounded-t-xl hover:scale-90"
-            />
-            <div className="w-full  h-1/4 ">
-              <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
-              <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
-                <Link
-                  to="/contact/1/1"
-                  className="bg-black flex items-center text-white px-2"
-                >
-                  <AiOutlinePhone />
-                  Contact
-                </Link>
-                <Link to="/" className="flex items-center px-2 bg-yellow-500">
-                  <AiOutlineShoppingCart />
-                  Purchase
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
-            <img
-              src={Cart_Six}
-              alt=""
-              className="w-full h-3/4 rounded-t-xl hover:scale-90"
-            />
-            <div className="w-full  h-1/4 ">
-              <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
-              <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
-                <Link
-                  to="/contact/1/1"
-                  className="bg-black flex items-center text-white px-2"
-                >
-                  <AiOutlinePhone />
-                  Contact
-                </Link>
-                <Link to="/" className="flex items-center px-2 bg-yellow-500">
-                  <AiOutlineShoppingCart />
-                  Purchase
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
-            <img
-              src={Cart_Six}
-              alt=""
-              className="w-full h-3/4 rounded-t-xl hover:scale-90"
-            />
-            <div className="w-full  h-1/4 ">
-              <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
-              <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
-                <Link
-                  to="/contact/1/1"
-                  className="bg-black flex items-center text-white px-2"
-                >
-                  <AiOutlinePhone />
-                  Contact
-                </Link>
-                <Link to="/" className="flex items-center px-2 bg-yellow-500">
-                  <AiOutlineShoppingCart />
-                  Purchase
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className=" w-full  max-h-64 cursor-pointer bg-white py-2 shadow-sm border  rounded-xl">
-            <img
-              src={Cart_Six}
-              alt=""
-              className="w-full h-3/4 rounded-t-xl hover:scale-90"
-            />
-            <div className="w-full  h-1/4 ">
-              <h3 className="pl-3 py-1 font-bold">Multer Rooms</h3>
-              <div className="flex w-full items-center  justify-between pt-1 px-3 pb-1">
-                <Link
-                  to="/contact/1/1"
-                  className="bg-black flex items-center text-white px-2"
-                >
-                  <AiOutlinePhone />
-                  Contact
-                </Link>
-                <Link to="/" className="flex items-center px-2 bg-yellow-500">
-                  <AiOutlineShoppingCart />
-                  Purchase
-                </Link>
-              </div>
+          <div className="flex items-center justify-center mt-10">
+            <div className=" bg-[#7065F0] sm:w-full flex justify-center items-center rounded-md">
+              <button
+                className=" px-4 py-2 rounded-md outline-none  text-white tab:"
+                type="button"
+              >
+                Browse Properties
+              </button>
             </div>
           </div>
         </div>

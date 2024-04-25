@@ -9,3 +9,11 @@
     left: -1000%;
     right: 1000%;
 }
+
+#user-header:hover > #user-modal{
+    display: flex;
+}
+/* 
+WHEN USER HOVERS, IT SHOULD SHOW
+WHEN USER CLICKS, IT SHOULD STAY
+AND SO, WE COMBINE CSS AND TRUE OR FALSE */
