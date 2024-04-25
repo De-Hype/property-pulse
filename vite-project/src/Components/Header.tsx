@@ -84,16 +84,15 @@ const Header = () => {
             <Link to="/">Sell</Link>
           </p>
           <p className="text-center hover:text-purple-600 active:text-blue-400">
-          <Link className="" to="/">
+            <Link className="" to="/">
               Manage property
             </Link>
           </p>
           <p className="text-center hover:text-purple-600 active:text-blue-400">
-          <Link className="" to="/">
+            <Link className="" to="/">
               Blog
             </Link>
           </p>
-          
           <p className="text-center hover:text-purple-600 active:text-blue-400">
             <Link className="" to="/sign-in">
               <button
