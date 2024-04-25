@@ -89,7 +89,7 @@ const Header = () => {
             </Link>
           </p>
           <p className="text-center hover:text-purple-600 active:text-blue-400">
-            <Link className="" to="/">
+            <Link className="" to="/blog">
               Blog
             </Link>
           </p>
@@ -98,7 +98,7 @@ const Header = () => {
               <button
                 className="px-4 py-2 text-slate-600 rounded-md outline-none border border-purple-700"
                 type="button"
-              >
+              > 
                 Login
               </button>
             </Link>
