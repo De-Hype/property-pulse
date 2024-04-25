@@ -1,38 +1,11 @@
 .animation{
-    
-    transition: all 1500ms ease-out;
-    /* animation: showMenu 1500ms ; */
+    transition: all 1000ms ease-out;
     left: 0;
     right: 0;
 }
-/* @keyframes showMenu {
-    0%{
-        left: -1000%;
-    }
-    50%{
-        left: 50%;
-    }
-    100%{
-        left: 0;
-        right: 0;
-    }
-} */
-.hide-animation{
-    
-    transition: all 3000ms ease-in-out;
-    /* animation: hideMenu 1500ms ; */
-    left: -1000%;
-        right: 1000%;
-}
-/* 
-@keyframes hideMenu {
-    0%{
-        left: 0;
-        right: 0;
-    }
-    100%{
-        left: -1000%;
-        right: 1000%;
-    }
 
-} */
+.hide-animation{
+    transition: all 3000ms ease-in-out;
+    left: -1000%;
+    right: 1000%;
+}
