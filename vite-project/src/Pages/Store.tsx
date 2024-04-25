@@ -33,7 +33,7 @@ const Store = () => {
           </div>
         </div>
       </div>
-      <div className="px-3 bg-purple-50">
+      <div className="px-3 pb-8 bg-purple-50">
         <div className="flex items-center justify-center pt-10">
           <form
             onSubmit={handleNewsletterSubmit}

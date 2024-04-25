@@ -15,7 +15,7 @@ const FindHome = () => {
             Find your dream place to live in with more than 10k+ properties
             listed
           </p>
-          <Link className="w-full bg-[#7065F0] flex justify-center items-center rounded-xl" to="/">
+          <Link  className="w-full bg-[#7065F0] flex justify-center items-center rounded-xl" to="/store">
             <button
               className=" px-4 py-2 rounded-md outline-none   text-white tab:"
               type="button"
