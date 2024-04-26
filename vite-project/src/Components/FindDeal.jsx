@@ -1,8 +1,12 @@
 import virtual from "../assets/Eastery/virtual.svg";
 import apply from "../assets/Eastery/apply.svg";
 import deals from "../assets/Eastery/deals.svg";
-
+import CountUp from "react-countup";
+import { useState } from "react";
+import ScrollTrigger from "react-scroll-trigger";
 const FindDeal = () => {
+  const [counterState, setCounterState] = useState(false)
+
   return (
     <div className=" px-20 tab:px-5 gap-4 py-10 bg-blue-950 text-white w-full">
       <div className="w-full grid grid-cols-2 tab:flex tab:flex-col tab:gap-4">
@@ -51,20 +55,28 @@ const FindDeal = () => {
         </div>
       </div>
       <div className="flex items-center border-t pt-7 justify-center">
+      <ScrollTrigger onEnter={()=> setCounterState(true)} onExit={()=> setCounterState(false)}>   
+
         <div className="grid grid-cols-3 gap-2 tab:grid-cols-1 tab:gap-5">
           <div className="flex flex-col items-center gap-1 pr-2">
-            <h3 className="font-bold text-2xl text-center">7.4%</h3>
+            <h3 className="font-bold text-2xl text-center">
+            {counterState && <CountUp start={1} end={7} duration={3} />}.4%</h3>
             <p className="text-center text-xs text-slate-200 font-extralight">Property return rate</p>
           </div>
           <div className="flex flex-col items-center gap-1 border-x tab:border-y tab:border-x-0 tab:py-3 px-2">
-            <h3 className="font-bold text-2xl text-center">3,856</h3>
+            <h3 className="font-bold text-2xl text-center">
+            {counterState && <CountUp start={3000} end={3857} duration={3} />}
+            </h3>
             <p className="text-center text-xs text-slate-200 font-extralight">Property In Sell & Rent</p>
           </div>
           <div className="flex flex-col items-center px-2 gap-1">
-            <h3 className="font-bold text-2xl text-center">2,540</h3>
+            <h3 className="font-bold text-2xl text-center">
+            {counterState && <CountUp start={2000} end={2540} duration={3} />}
+            </h3>
             <p className="text-center text-xs text-slate-200 font-extralight">Daily Completed Transactions</p>
           </div>
         </div>
+        </ScrollTrigger>
       </div>
     </div>
   );

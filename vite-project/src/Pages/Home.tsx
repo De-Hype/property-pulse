@@ -1,5 +1,5 @@
 import Header from "../Components/Header"
-import Hero from "../Components/Hero"
+import Hero from "../Components/Hero.Jsx"
 import FindHome from "../Components/FindHome"
 import MarketPlace from "../Components/MarketPlace"
 import Footer from "../Components/Footer"

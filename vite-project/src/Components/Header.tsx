@@ -16,7 +16,7 @@ const Header = () => {
     setUserShow(!usershow);
   };
   //const user = Cookies.get("pulse_user");
-  const user = false;
+  const user = true;
   return (
     <header className="bg-purple-50">
       <div className="flex items-center justify-between px-6 py-3">
@@ -53,7 +53,7 @@ const Header = () => {
         {user ? (
           <nav
             id="user-header"
-            className=" tab:hidden relative"
+            className="cursor-pointer tab:hidden relative"
             onClick={handleUserShow}
           >
             <img

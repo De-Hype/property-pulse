@@ -7,7 +7,11 @@ import quotation from "../assets/Eastery/quotation.svg";
 import logo from "../assets/Eastery/logo.svg";
 import heroImg from "../assets/Eastery/heroImg.png";
 import heroTestimonial from "../assets/Eastery/heroTestimonial.png";
+import CountUp from "react-countup";
+import { useState } from "react";
+import ScrollTrigger from "react-scroll-trigger";
 const Hero = () => {
+  const [counterState, setCounterState] = useState(false)
   return (
     <div className="pl-12 pt-9 tab:px-3 tab:py-4 bg-purple-100  flex tab:flex-col">
       <div className="w-1/2 tab:text-center tab:w-full flex flex-col gap-3">
@@ -49,22 +53,25 @@ const Hero = () => {
             </form>
           </div>
         </div>
+        <ScrollTrigger onEnter={()=> setCounterState(true)} onExit={()=> setCounterState(false)}>   
         <div className="grid grid-cols-2">
           <div className="text-left">
             <img src={renters} alt="" />
-            <h3 className="text-purple-700 font-medium">50K+ renters</h3>
+            <h3 className="text-purple-700 font-medium">
+              {counterState && <CountUp start={5} end={50} duration={3} />}K+ renters</h3>
             <p className="font-normal text-xs">believe in our services</p>
           </div>
           <div className="">
             <img src={properties} alt="" />
             <h3 className="text-purple-700 font-medium text-left">
-              10K+ properties
+            {counterState && <CountUp start={1} end={15} duration={2.75} />}K+ properties
             </h3>
             <p className="font-normal text-xs text-left">
               and house ready for occupancy
             </p>
           </div>
         </div>
+        </ScrollTrigger>
       </div>
       <div className="sm:hidden relative ">
         <img src={heroImg} className="h-full" alt="Hero image for est" />
