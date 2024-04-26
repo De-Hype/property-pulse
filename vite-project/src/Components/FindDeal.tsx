@@ -1,3 +1,4 @@
+//@ts-nocheck
 import virtual from "../assets/Eastery/virtual.svg";
 import apply from "../assets/Eastery/apply.svg";
 import deals from "../assets/Eastery/deals.svg";

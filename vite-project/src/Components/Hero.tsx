@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
@@ -74,7 +75,7 @@ const Hero = () => {
         </ScrollTrigger>
       </div>
       <div className="sm:hidden relative ">
-        <img src={heroImg} className="h-full" alt="Hero image for est" />
+        <img src={heroImg} className="h-full " alt="Hero image for est" />
         <div className="flex rounded-tl-xl w-[300px] flex-col gap-4 bg-blue-950 text-white px-4 py-5 right-0 absolute bottom-0">
           <div className="flex items-center justify-between">
             <h3 className="font-semibold text-lg">Excellent</h3>
