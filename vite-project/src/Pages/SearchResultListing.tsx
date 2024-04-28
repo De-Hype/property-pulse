@@ -42,38 +42,7 @@ const SearchResultListing = () => {
             />
           </form>
         </div>
-        <div className="w-full flex flex-col gap-4 self-start pb-5 px-5">
-          <div className="flex gap-2">
-            <h3 className="font-bold">Type:</h3>
-            <div className="flex items-center gap-3 justify-between">
-              <div className="flex items-center gap-1">
-                <input type="checkbox" name="rent" id="rent" />
-                <span>Rent</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <input type="checkbox" name="sell" id="sell" />
-                <span>Sales</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex gap-2">
-            <h3 className="font-bold">Property Type:</h3>
-            <div className="flex items-center gap-3 justify-between">
-              <div className="flex gap-1 items-center">
-                <input type="checkbox" name="School" id="school" />
-                <span>School</span>
-              </div>
-              <div className="flex gap-1 items-center">
-                <input type="checkbox" name="houses" id="houses" />
-                <span>Houses</span>
-              </div>
-              <div className="flex gap-1 items-center">
-                <input type="checkbox" name="hotels" id="hotels" />
-                <span>Hotels</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        
         <div className="w-full px-3 py-4 self-start min-h-[80vh] ">
         <div className="mt-8">
           <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-col sm:gap-7 tab:grid-cols-2 ">

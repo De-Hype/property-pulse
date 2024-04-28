@@ -1,12 +1,20 @@
+//@ts-nocheck
+
 import { Link } from "react-router-dom";
 import logo from "../assets/Eastery/logo.svg";
-import { AiOutlineGithub, AiOutlineLinkedin } from "react-icons/ai";
+import { AiOutlineGithub, AiOutlineLinkedin, AiOutlineTwitter } from "react-icons/ai";
 import {IoEarth} from "react-icons/io5"
+import { useEffect } from "react"
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Footer = () => {
+  useEffect(() => {
+    AOS.init({duration:3000})
+  }, [])
   const date = new Date().getFullYear();
 
   return (
-    <div className="px-20 tab:px-5 gap-4 py-10">
+    <div data-aos="fade-up" className="px-20 tab:px-5 gap-4 py-10">
       <div className="flex gap-5 tab:flex-col sm:items-center py-6">
         <div className="mb-0 tab:mb-8">
           <Link to="/" className="flex items-center gap-2">
@@ -161,14 +169,17 @@ const Footer = () => {
           <p className="tab:text-center"><span>&copy;</span> {date} Estatery. All rights reserved</p>
         </div>
         <div className="flex items-center tab:justify-around sm:w-full tab:pt-4 gap-3">
-        <Link  to="/">
+        <Link  to="https://github.com/De-Hype">
           <AiOutlineGithub className="text-2xl" />
         </Link>
-        <Link  to="/">
+        <Link  to="https://linkdln.com">
           <AiOutlineLinkedin className="text-2xl" />
         </Link>
-        <Link  to="/">
+        <Link  to="https://david-hype.vercel.app">
           <IoEarth className="text-2xl" />
+        </Link>
+        <Link  to="https://david-hype.vercel.app">
+          <AiOutlineTwitter className="text-2xl" />
         </Link>
         </div>
       </div>

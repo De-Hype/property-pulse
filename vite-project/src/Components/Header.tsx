@@ -108,7 +108,7 @@ const Header = () => {
       </div>
 
       <div
-        className={`fixed hidden tab:flex flex-col gap-5  w-full px-5  bg-purple-50 overflow-y-hidden pt-6 top-0 z-50 h-screen bottom-5 ${
+        className={`fixed hidden tab:flex flex-col gap-5  w-full px-5  bg-purple-50 overflow-y-hidden pt-6 top-0 z-[10000] h-screen bottom-0 ${
           show ? "animation" : "hide-animation"
         }`}
       >

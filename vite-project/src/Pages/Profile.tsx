@@ -1,56 +1,56 @@
 //Users will be able to access their profiles here
 //They can also see their listings on this page
-// import { useState, ChangeEvent, FormEvent, useRef } from "react";
-// import react from "../assets/react.svg";
-// import { Link } from "react-router-dom";
-// // import axios from "axios";
-// import { AiOutlineHome } from "react-icons/ai";
+import { useState, ChangeEvent, FormEvent, useRef } from "react";
+import heroTestimonial from "../assets/Eastery/heroTestimonial.png";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { AiOutlineHome } from "react-icons/ai";
 
 const Profile = () => {
-  // const [userData, setUserData] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   password: "",
-  // });
-  // const [file, setFile] = useState<File | null>(null)
-  // const fileRef = useRef<HTMLImageElement | unknown | any>(undefined);
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+  const [file, setFile] = useState<File | null>(null)
+  const fileRef = useRef<HTMLImageElement | unknown | any>(undefined);
 
-  //We will also fetch the pr
-  // const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
-  //   setUserData({
-  //     ...userData,
-  //     [evt.target.name]: evt.target.value,
-  //   });
-  // };
-  // const submitForm = async (evt: FormEvent<HTMLFormElement>) => {
-  //   evt.preventDefault();
-  //   console.log(userData);
-  //   try {
-  //     console.log(file)
-  //   } catch (error) {}
-  // };
-  // const ChangeImage = (evt:React.ChangeEvent<HTMLInputElement>)=>{
-  //   if (!evt.target.files) return;
-  //   setFile(evt.target.files[0])
-  // }
-  // const LogOut = async () => {
-  //   console.log("You are trying to logout");
-  // };
-  // const DeleteAccount = async () => {
-  //   console.log("You are trying to delete an account");
-  // };
-  // const FetchDetails = async () => {
-  //   console.log("You have fetched the current log in details of the user");
-  // };
+
+  const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    setUserData({
+      ...userData,
+      [evt.target.name]: evt.target.value,
+    });
+  };
+  const submitForm = async (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    console.log(userData);
+    try {
+      console.log(file)
+    } catch (error) {}
+  };
+  const ChangeImage = (evt:React.ChangeEvent<HTMLInputElement>)=>{
+    if (!evt.target.files) return;
+    setFile(evt.target.files[0])
+  }
+  const LogOut = async () => {
+    console.log("You are trying to logout");
+  };
+  const DeleteAccount = async () => {
+    console.log("You are trying to delete an account");
+  };
+  const FetchDetails = async () => {
+    console.log("You have fetched the current log in details of the user");
+  };
   return (
     <div className="flex items-center justify-center ">
-      {/* <div className="mt-10 flex items-center flex-col gap-8">
+      <div className="mt-10 flex items-center flex-col gap-8">
         <Link to="/" className="flex items-center gap-1 hover:text-yellow-700 hover:underline">
           <AiOutlineHome className='text-2xl' /> <span>Go Home</span>
         </Link>
         <input type="file" ref={fileRef} onChange={(evt)=>ChangeImage(evt)} hidden name="" id="" />
-        <img src={react} className="h-16 w-16 cursor-pointer" onClick={()=>fileRef.current.click()} alt="" />
+        <img src={heroTestimonial} className="h-16 w-16 cursor-pointer rounded-full" onClick={()=>fileRef.current.click()} alt="" />
         <form
           onSubmit={(evt) => submitForm(evt)}
           className="flex flex-col gap-4"
@@ -120,7 +120,7 @@ const Profile = () => {
         >
           My listings
         </Link>
-      </div> */}
+      </div>
     </div>
   );
 };

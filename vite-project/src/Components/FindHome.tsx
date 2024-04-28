@@ -1,20 +1,21 @@
 //@ts-nocheck
+import { useEffect } from "react"
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import HeroHome from "../assets/Eastery/HeroHome.svg";
 import Insurance from "../assets/Eastery/Insurance.svg";
 import commisionIcon from "../assets/Eastery/commisionIcon.svg";
 import overAllIcon from "../assets/Eastery/overAllIcon.svg";
 import priceIcon from "../assets/Eastery/priceIcon.svg";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const FindHome = () => {
   useEffect(() => {
-    AOS.init({ duration: 3000 });
-  }, []);
+    AOS.init({duration:3000})
+  }, [])
+
   return (
-    <div className="flex tab:flex-col px-20 sm:px-6 gap-4 py-10">
+    <div data-aos="fade-up" className="flex tab:flex-col px-20 sm:px-6 gap-4 py-10">
       <div className="bg-purple-200 rounded-xl py-4 px-5">
         <div className="flex flex-col gap-4 sm:pb-7">
           <h2 className=" tab:text-center text-purple-950 text-xl font-medium">The new way to find your new home</h2>
@@ -35,14 +36,14 @@ const FindHome = () => {
       </div>
       <div className="grid grid-rows-2 gap-3 sm:gap-5">
         <div  className="Row-1 grid grid-cols-2 sm:grid-cols-1 sm:gap-4">
-            <div data-aos="fade-up" className="Benefit-1 ">
+            <div className="Benefit-1 ">
                 <img src={Insurance} className="pb-5" alt="" />
                 <div className="">
                     <h3 className="font-bold text-lg pb-5">Property Insurance</h3>
                     <p className="">We offer our customer property protection of liability coverage and insurance for their better life.</p>
                 </div>
             </div>
-            <div data-aos="fade-up" className="Benefit-1">
+            <div className="Benefit-1">
                 <img src={priceIcon} className="pb-5" alt="" />
                 <div className="">
                     <h3 className="font-bold text-lg pb-5">Best Price</h3>
@@ -50,15 +51,15 @@ const FindHome = () => {
                 </div>
             </div>
         </div>
-        <div  className="Row-1 pt-5 sm:pt-0 grid grid-cols-2 sm:grid-cols-1 sm:gap-4">
-            <div data-aos="fade-up" className="Benefit-1">
+        <div className="Row-1 pt-5 sm:pt-0 grid grid-cols-2 sm:grid-cols-1 sm:gap-4">
+            <div className="Benefit-1">
                 <img className="pb-5" src={commisionIcon} alt="" />
                 <div className="">
                     <h3 className="font-bold text-lg pb-5">Lowest Commission</h3>
                     <p className="">We offer our customer property protection of liability coverage and insurance for their better life.</p>
                 </div>
             </div>
-            <div data-aos="fade-up" className="Benefit-1 sm:pt-3">
+            <div className="Benefit-1 sm:pt-3">
                 <img className="pb-5" src={overAllIcon} alt="" />
                 <div className="">
                     <h3 className="font-bold text-lg pb-5">Overall Control</h3>

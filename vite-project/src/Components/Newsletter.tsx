@@ -1,13 +1,21 @@
+//@ts-nocheck
 import { useState } from "react";
+import { useEffect } from "react"
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Newsletter = () => {
   const [input, setInput] = useState("");
   const handleNewsletterSubmit =(e:any)=>{
     e.preventDefault();
     console.log(input)
+    
   }
+  useEffect(() => {
+    AOS.init({duration:3000})
+  }, [])
   return (
-    <div className="sm:mt-4 bg-slate-50 px-20 tab:px-5 gap-4 py-14  ">
+    <div data-aos="fade-up" className="sm:mt-4 bg-slate-50 px-20 tab:px-5 gap-4 py-14  ">
       <div className="flex items-center flex-col gap-3">
         <h5 className="text-center text-[#7065F0] text-base font-semibold">No Spam Promise</h5>
         <h3 className="text-center text-2xl font-bold">Are you a landlord?</h3>

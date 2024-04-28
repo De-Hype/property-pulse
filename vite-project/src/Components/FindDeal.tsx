@@ -5,11 +5,16 @@ import deals from "../assets/Eastery/deals.svg";
 import CountUp from "react-countup";
 import { useState } from "react";
 import ScrollTrigger from "react-scroll-trigger";
+import { useEffect } from "react"
+import AOS from "aos";
+import "aos/dist/aos.css";
 const FindDeal = () => {
   const [counterState, setCounterState] = useState(false)
-
+  useEffect(() => {
+    AOS.init({duration:3000})
+  }, [])
   return (
-    <div className=" px-20 tab:px-5 gap-4 py-10 bg-blue-950 text-white w-full">
+    <div data-aos="fade-up" className=" px-20 tab:px-5 gap-4  py-10 bg-blue-950 text-white w-full">
       <div className="w-full grid grid-cols-2 tab:flex tab:flex-col tab:gap-4">
         <h3 className="tab:text-center text-2xl font-semibold w-[250px] tab:w-full">
           We make it easy for <span className="text-purple-500">tenants</span>
