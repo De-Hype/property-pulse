@@ -6,7 +6,7 @@ import Cart_Two from "../assets/Cart_Two.jpg";
 import Cart_Three from "../assets/Cart_Three.jpg";
 import Cart_Four from "../assets/Cart_Four.jpg";
 import Cart_Five from "../assets/Cart_Five.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cart_Six from "../assets/Cart_Six.jpg";
 import Footer from "../Components/Footer";
 import { useState } from "react";
@@ -14,9 +14,11 @@ import { AiOutlineFilter } from "react-icons/ai";
 import Filter from "../Components/Filter";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilterState } from "../Redux/actionSlice";
+import { toast } from "sonner";
 const Store = () => {
   const [input, setInput] = useState("");
   const [filterNumber, setFilterNumber] = useState(1);
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const filterClicked = useSelector((state:any)=>state.action.filterClicked)
 
@@ -25,9 +27,11 @@ const Store = () => {
     setFilterNumber(2)
   }
   
-  const handleNewsletterSubmit = (e: any) => {
+  const handleSearchSubmit = (e: any) => {
     e.preventDefault();
-    console.log(input);
+    if(input == "") return toast.success('Please provide a valid search query')
+    navigate(`/search?q=${input.toLowerCase()}`)
+    console.log(input)
   };
   return (
     <div className="relative">
@@ -50,7 +54,7 @@ const Store = () => {
         <div className="px-3 pb-8 bg-purple-50">
           <div className="flex items-center justify-between tab:flex-col pt-10">
             <form
-              onSubmit={handleNewsletterSubmit}
+              onSubmit={handleSearchSubmit}
               className="bg-white px-3 py-3 flex min-w-[600px] rounded-md tab:flex-col tab:bg-inherit tab:gap-3 tab:min-w-full"
             >
               <input
@@ -62,6 +66,7 @@ const Store = () => {
                 className=" bg-inherit text-[#080614] w-full outline-none py-2 px-4 tab:bg-white tab:py-4 tab:rounded-lg tab:border tab:border-[#7065F0]"
               />
               <input
+              onClick={handleSearchSubmit}
                 type="button"
                 className="bg-[#7065F0] rounded-lg cursor-pointer transition-all hover:bg-purple-800 text-white font-medium px-5 py-2 tab:py-3"
                 value="Search"

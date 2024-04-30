@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
@@ -23,15 +24,12 @@ function App() {
         position="top-center"
         toastOptions={{
           unstyled: true,
-          // classNames: {
-          //   error:
-          //     "bg-red-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
-          //   success:
-          //     "bg-green-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
-          //   info: "bg-blue-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
-          //   warning:
-          //     "bg-blue-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
-          // },
+          classNames: {
+            error:"bg-red-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
+            success:"bg-green-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
+            info: "bg-blue-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
+            warning: "bg-blue-400 text-white px-4 py-2 rounded-xl flex items-center gap-2",
+          },
         }}
       />
       <Router>
