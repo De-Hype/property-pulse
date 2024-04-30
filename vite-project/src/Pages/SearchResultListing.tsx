@@ -39,12 +39,13 @@ const SearchResultListing = () => {
   return (
     <div className="">
       <div
-        className={`w-full flex flex-col overflow-x-hidden overflow-hidden min-h-screen ${
+        className={`w-full flex flex-col overflow-x-hidden overflow-hidden  ${
           filterClicked ? "blur" : "blur-none"
         }`}
       >
         <Header />
         <div className="flex items-center flex-col min-h-[80vh] bg-[#f1eeee] ">
+          <h3 className="text-center mt-7 font-semibold text-lg">Search result showing listing for "<span className="">Cars</span>"</h3>
           <div className="flex items-center gap-4 tab:flex-col tab:w-full justify-center pt-10 mb-5 px-5">
             <form
               onSubmit={handleSearchSubmit}
