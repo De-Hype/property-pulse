@@ -16,12 +16,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Hero = () => {
-  const [counterState, setCounterState] = useState(false)
+  const [counterState, setCounterState] = useState(false);
+  
   useEffect(() => {
     AOS.init({duration:3000})
   }, [])
   return (
-    <div data-aos="fade-up" className="pl-12 pt-9 tab:px-3 tab:py-4 bg-purple-100  flex tab:flex-col">
+    <div data-aos="fade-up" className="pl-12 overflow-y-hidden pt-9 tab:px-3 tab:py-4 bg-purple-100  flex tab:flex-col">
       <div className="w-1/2 tab:text-center tab:w-full flex flex-col gap-3">
         <div className="flex flex-col gap-4 ">
           <h3 className="text-6xl tab:text-4xl font-bold">

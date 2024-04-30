@@ -12,15 +12,26 @@ import Footer from "../Components/Footer";
 import { useState } from "react";
 import { AiOutlineFilter } from "react-icons/ai";
 import Filter from "../Components/Filter";
+import { useDispatch, useSelector } from "react-redux";
+import { changeFilterState } from "../Redux/actionSlice";
 const Store = () => {
   const [input, setInput] = useState("");
+  const [filterNumber, setFilterNumber] = useState(1);
+  const dispatch = useDispatch();
+  const filterClicked = useSelector((state:any)=>state.action.filterClicked)
+
+  const OpenModal =()=>{
+    dispatch(changeFilterState())
+    setFilterNumber(2)
+  }
+  
   const handleNewsletterSubmit = (e: any) => {
     e.preventDefault();
     console.log(input);
   };
   return (
     <div className="relative">
-      <div className="overflow-x-hidden min-h-screen ">
+      <div className={`overflow-hidden min-h-screen ${filterClicked ? "blur" : "blur-none"} `}>
         <div className="">
           <img
             src={Hero_assets}
@@ -56,8 +67,9 @@ const Store = () => {
                 value="Search"
               />
             </form>
-            <div className="bg-red-500 my-5">
-              <AiOutlineFilter className="text-3xl" />
+            <div onClick={OpenModal} className=" relative my-5">
+              <AiOutlineFilter  className="text-4xl cursor-pointer" />
+              <span className="absolute bg-purple-900 rounded-full text-white py-1 px-2 font-semibold top-4 left-5">{filterNumber}</span>
             </div>
           </div>
           <div className="mt-8">

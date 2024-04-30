@@ -1,10 +1,19 @@
 import { useState } from "react";
+import { AiOutlineCloseSquare } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { changeFilterState } from "../Redux/actionSlice";
 
 const Filter = () => {
     const [priceInput, setPriceInput] = useState(100)
+    const dispatch = useDispatch();
+  const filterClicked = useSelector((state:any)=>state.action.filterClicked)
+  const closeModal = ()=>{
+    dispatch(changeFilterState())
+  }
   return (
-    <div className="fixed z-50 top-0 bottom-0 left-0 right-0 bg-gray-200 h-screen grid place-items-center">
-      <div className="bg-white px-5 py-4">
+    <div className={`fixed z-50 top-0 bottom-0 left-0 right-0  h-screen ${filterClicked ? "fade":"hidden"} place-items-center`}>
+      <div className="bg-white px-5 py-4 flex flex-col items-center gap-3">
+        <AiOutlineCloseSquare onClick={closeModal} className="text-center text-2xl cursor-pointer" />
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
             <h3 className="font-bold text-center">Type:</h3>
@@ -12,6 +21,10 @@ const Filter = () => {
               <div className="flex items-center gap-1">
                 <input type="checkbox" name="rent" id="rent" />
                 <span>Rent</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <input type="checkbox" name="buy" id="buy" />
+                <span>Buy</span>
               </div>
               <div className="flex items-center gap-1">
                 <input type="checkbox" name="sell" id="sell" />

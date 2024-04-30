@@ -13,6 +13,20 @@
 #user-header:hover > #user-modal{
     display: flex;
 }
+
+.fade{
+    display: grid;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from{
+        opacity:.4 ;
+    }
+    to{
+        opacity: 1;
+    }
+}
 /* 
 WHEN USER HOVERS, IT SHOULD SHOW
 WHEN USER CLICKS, IT SHOULD STAY
