@@ -7,7 +7,6 @@ const {
   uploadBytesResumable,
 } = require("firebase/storage");
 const Property = require("../models/property");
-const User = require("../models/user");
 const AppError = require("../utils/AppError");
 const catchAsync = require("../utils/catchAsync");
 const firebaseConfig = require("../utils/firebase");
@@ -53,7 +52,6 @@ module.exports.CreateListing = catchAsync(async (req, res, next) => {
     listing: createdProduct,
   });
 });
-
 
 module.exports.UpdateListing = catchAsync(async (req, res, next) => {
   const { error, value } = ValidateUpdateListingSchema(req.body);
@@ -111,8 +109,6 @@ module.exports.DeleteListing = catchAsync(async (req, res, next) => {
   });
 });
 
-
-
 module.exports.GetHomePageListing = catchAsync(async (req, res, next) => {
   const { limit } = req.query;
   const home_product = await Property.find().limit(limit);
@@ -145,13 +141,13 @@ module.exports.SearchResultListing = catchAsync(async (req, res, next) => {
 module.exports.SearchListingByLocation = catchAsync(async (req, res, next) => {
   const { searchTerm } = req.query;
   if (searchTerm == "" || undefined) {
-    next(new AppError("Search term should not be empty", 401));
+    next(new AppError("Location must be provided", 401));
   }
   const found_product = await Property.find({
     location: { $regex: searchTerm, $options: "i" },
   });
   if (found_product == 0) {
-    return res.json({ text: searchTerm, message: "No product found" });
+    return res.json({ text: searchTerm, message: `No property found in ${searchTerm}` });
   }
   res.status(200).json({
     status: "ok",
@@ -167,18 +163,17 @@ module.exports.GetStoreListing = catchAsync(async (req, res, next) => {
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
   const results = {};
-  if (endIndex < await Property.countDocuments().exec()){
-    results.next={
-      page:page + 1,
-      limit:limit
-    }
+  if (endIndex < (await Property.countDocuments().exec())) {
+    results.next = {
+      page: page + 1,
+      limit: limit,
+    };
   }
-  if (startIndex > 0){
-    results.previous ={
-      page:page - 1,
-      limit:limit
-    } 
-  };
-  results.results = await Property.find().limit(limit).skip(startIndex).exec()
- 
+  if (startIndex > 0) {
+    results.previous = {
+      page: page - 1,
+      limit: limit,
+    };
+  }
+  results.results = await Property.find().limit(limit).skip(startIndex).exec();
 });
