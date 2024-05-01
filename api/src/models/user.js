@@ -18,14 +18,9 @@ const userSchema = new mongoose.Schema({
     },
     password:{
         type:String,
-        min:[4,'Password must be at least 4 characters'],
+        min:[6,'Password must be at least 4 characters'],
         required:true,
     },
-    property:{
-        default:null,
-        ref:'Property',
-        type:[mongoose.Types.ObjectId],
-        required:true
-    }
+    
 }, {timestamps:true})
 module.exports = mongoose.model('User', userSchema)

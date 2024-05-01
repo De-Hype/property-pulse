@@ -114,12 +114,6 @@ const Profile = () => {
             Sign Out
           </h2>
         </div>
-        <Link
-          to="/my-listings"
-          className="bg-green-200 text-green-800 rounded-md cursor-pointer"
-        >
-          My listings
-        </Link>
       </div>
     </div>
   );

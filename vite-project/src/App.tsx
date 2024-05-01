@@ -46,11 +46,11 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/create" element={<CreateListing />} />
+              {/* <Route path="/create" element={<CreateListing />} /> */}
               <Route path="/search" element={<SearchResultListing />} />
-              <Route path="/contact/:id/:id" element={<Contact />} />
-              <Route path="/my-listings" element={<MyListing />} />
-              <Route path="/update-listing/:id" element={<UpdateListing />} />
+              {/* <Route path="/contact/:id/:id" element={<Contact />} /> */}
+              {/* <Route path="/my-listings" element={<MyListing />} />
+              <Route path="/update-listing/:id" element={<UpdateListing />} /> */}
               <Route path="*" element={<ErrorPage />} />
             </Route>
           </>

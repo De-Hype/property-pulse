@@ -8,14 +8,13 @@ const propertySchema = new mongoose.Schema(
       unique: true,
     },
     description: {
-        type: String,
-        required: [true, "Description not provided"],
-        unique: true,
-      },
+      type: String,
+      required: [true, "Description not provided"],
+      unique: true,
+    },
     imageUrls: {
       type: String,
       required: [true, "Image url not provided"],
-      unique: true,
     },
 
     address: {
@@ -23,34 +22,22 @@ const propertySchema = new mongoose.Schema(
       required: [true, "Address not provided"],
       unique: [true, "Address already exist"],
     },
+    location: {
+      type: String,
+      required: [true, "Location not provided"],
+      unique: [true, "Location already exist"],
+    },
     property_type: {
       type: String,
       enum: {
-        values: ["School", "House", "Hotels"],
-        message: `{VALUE}Does not match either of school, house or hotel`,
+        values: ["buy", "rent", "sell"],
+        message: `{VALUE} does not match either of buying, renting or selling`,
       },
     },
 
-    type: {
-      type: String,
-      enum: {
-        values: ["School", "House", "Hotels"],
-        message: `{VALUE}Does not match either of school, house or hotel`,
-      },
-    },
     price: {
       type: Number,
       required: true,
-    },
-    years: {
-      type: Number,
-      required: true,
-    },
-    poster: {
-      ref: "User",
-      type: mongoose.Types.ObjectId,
-      required: [true, "No product poster provided"],
-      //this will make a reference to this poster
     },
   },
   { timestamps: true }

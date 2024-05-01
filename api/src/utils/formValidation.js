@@ -19,11 +19,9 @@ const CreateListingSchema = Joi.object({
     name:Joi.string().min(7).required(),
     description:Joi.string().min(15).required(), 
     address:Joi.string().min(15).required(), 
-    firebase_url:Joi.string().required(),
+    location:Joi.string().min(15).required(), 
     property_type:Joi.string().required(),
-    type:Joi.string().required(),
     price:Joi.number().min(15).required(),
-    years:Joi.number().required(),
 })
 const UpdateListingSchema = Joi.object({ 
     name:Joi.string().min(7).required(),

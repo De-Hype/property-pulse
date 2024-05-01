@@ -15,7 +15,7 @@ const AboutListing = () => {
           <AiOutlineHome className="text-2xl" /> <span>Go Back</span>
         </Link>
         <div className="w-full px-4 flex items-center  gap-4 tab:flex-col relative">
-          <div className="h-[500px] w-1/2 tab:w-full">
+          <div className="h-[500px] tab:h-[270px] w-1/2 tab:w-full">
             <img src={Cart_One} className="h-full w-full" alt="" />
           </div>
           <div className="w-1/2  tab:w-full flex items-center flex-col gap-3">
