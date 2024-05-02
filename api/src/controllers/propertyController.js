@@ -111,7 +111,10 @@ module.exports.DeleteListing = catchAsync(async (req, res, next) => {
 
 module.exports.GetHomePageListing = catchAsync(async (req, res, next) => {
   const { limit } = req.query;
-  const home_product = await Property.find().limit(limit);
+  const home_product = await Property.find().limit(limit || 6);
+  if (home_product.length == 0) {
+    return next(new AppError("No produuct has been found", 401));
+  }
   res.status(200).json({
     status: "ok",
     success: true,
@@ -146,8 +149,11 @@ module.exports.SearchListingByLocation = catchAsync(async (req, res, next) => {
   const found_product = await Property.find({
     location: { $regex: searchTerm, $options: "i" },
   });
-  if (found_product == 0) {
-    return res.json({ text: searchTerm, message: `No property found in ${searchTerm}` });
+  if (found_product.length == 0) {
+    return res.json({
+      text: searchTerm,
+      message: `No property found in ${searchTerm}`,
+    });
   }
   res.status(200).json({
     status: "ok",
@@ -158,7 +164,7 @@ module.exports.SearchListingByLocation = catchAsync(async (req, res, next) => {
   });
 });
 module.exports.GetStoreListing = catchAsync(async (req, res, next) => {
-  const page = parseInt(req.query.page);
+  const page = parseInt(req.query.page)|| 1;
   const limit = req.query.limit || 6;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;

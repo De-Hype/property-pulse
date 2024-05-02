@@ -7,7 +7,7 @@ const router = require('express').Router();
 // router.post('/upload-image', upload.single("image"), UploadImage )
 router.delete('/delete-listing/:id', DeleteListing);
 router.patch('update-listing/:id', UpdateListing)
-router.post('/create-listing', CreateListing);
+router.post('/create-listing', upload.single("image"), CreateListing);
 router.get('/search', SearchResultListing);
 router.get('/search-location', SearchListingByLocation);
 router.get('homepage-listing', GetHomePageListing);

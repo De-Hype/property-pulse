@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { useState } from "react";
-import { useEffect } from "react"
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { AiOutlineHome, AiOutlineKey, AiOutlineSearch } from "react-icons/ai";
@@ -15,14 +15,13 @@ import Cart_Six from "../assets/Cart_Six.jpg";
 
 const MarketPlace = () => {
   const [location, setLocation] = useState("");
-  const handleLocationSubmit =(e:any)=>{
+  const handleLocationSubmit = (e: any) => {
     e.preventDefault();
-    console.log(input)
-    
-  }
+    console.log(input);
+  };
   useEffect(() => {
-    AOS.init({duration:3000})
-  }, [])
+    AOS.init({ duration: 3000 });
+  }, []);
   return (
     <div data-aos="fade-up" className="sm:mt-4 bg-slate-50 py-8">
       <h3 className="text-center font-bold text-lg">Based on your location</h3>
@@ -51,13 +50,16 @@ const MarketPlace = () => {
               <AiOutlineHome /> <span>Sell</span>{" "}
             </button>
           </div>
-          <form onSubmit={handleLocationSubmit} className=" tab:w-full h-12 relative py-3 px-5 bg-slate-200 border border-slate-300 rounded-md tab:block">
+          <form
+            onSubmit={handleLocationSubmit}
+            className=" tab:w-full h-12 relative py-3 px-5 bg-slate-200 border border-slate-300 rounded-md tab:block"
+          >
             <input
               type="text"
               name="search"
               id="search"
               placeholder="Search Location..."
-              onChange={(e)=>setLocation(e.target.value)}
+              onChange={(e) => setLocation(e.target.value)}
               className="w-full rounded-b-md pl-10 bg-inherit  pr-5 h-full outline-none border-none"
             />
             <AiOutlineSearch className="absolute text-purple-600 text-xl top-[30%] bottom-[30%] left-[10px]" />
@@ -186,7 +188,6 @@ const MarketPlace = () => {
                 </p>
               </div>
             </div>
-            
           </div>
           <div className="flex items-center justify-center mt-10">
             <Link

@@ -19,7 +19,7 @@ const CreateListingSchema = Joi.object({
     name:Joi.string().min(7).required(),
     description:Joi.string().min(15).required(), 
     address:Joi.string().min(15).required(), 
-    location:Joi.string().min(15).required(), 
+    location:Joi.string().min(4).required(), 
     property_type:Joi.string().required(),
     price:Joi.number().min(15).required(),
 })
