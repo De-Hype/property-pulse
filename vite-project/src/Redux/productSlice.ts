@@ -5,7 +5,9 @@ import { Server } from '../utils/Server';
 
 export const fetchHomeProperty = createAsyncThunk<AxiosResponse<any>, undefined, {rejectValue:string}>(
     "product/items/getHome/Property", async()=>{
-        const results = await axios.get(`${Server}/property`);
+       const results = await axios.get(`https://estatery-m505.onrender.com/v1/api/property/homepage-listing`);
+       //const results =await ax http://localhost:7070/v1/api/property/homepage-listing
+        console.log(results)
         return results
     }
 )  
@@ -26,26 +28,27 @@ export const searchListingByLocation = createAsyncThunk<AxiosResponse<any>, unde
 
 export const storeListing = createAsyncThunk<AxiosResponse<any>, undefined, {rejectValue:string}>(
     "product/store", async()=>{
-        const results = await axios.get(`${Server}/property`);
+        const results = await axios.get(`https://estatery-m505.onrender.com/v1/api/property/store-listing`);
+       
         return results
     }
 )   
 
 export interface productState{
-    home_product :any[]
+    home_product :any
     search_result:any[]
     search_location_listing:any[]
-    store_listing:any[]
+    store_listing:any
     error:string
     loading:boolean
 }
 const initialState : productState = {
     error:"",
     loading: false,
-    home_product:[],
+    home_product:null,
     search_result:[],
     search_location_listing:[],
-    store_listing:[]
+    store_listing:null
 }
 export const productSlice = createSlice({
     name:'product',
@@ -62,7 +65,7 @@ export const productSlice = createSlice({
         builder.addCase(fetchHomeProperty.fulfilled, (state, action)=>{
             state.loading = false;
             state.error = "";
-            state.home_product = [action.payload];
+            state.home_product = action.payload;
             
         })
         builder.addCase(fetchHomeProperty.rejected, (state, action)=>{
@@ -99,7 +102,7 @@ export const productSlice = createSlice({
         builder.addCase(storeListing.fulfilled, (state, action)=>{
             state.loading = false;
             state.error = "";
-            state.store_listing = [action.payload];
+            state.store_listing = action.payload;
         } )
         builder.addCase(storeListing.rejected, (state, action)=>{
             state.loading = false;
@@ -108,5 +111,5 @@ export const productSlice = createSlice({
     },
 })
 
-// export const {}=productSlice.actions;
-// export default productSlice.reducer;
+export const {seeSearchResult}=productSlice.actions;
+export default productSlice.reducer;

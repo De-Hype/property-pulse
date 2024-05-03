@@ -12,14 +12,24 @@ import Cart_Three from "../assets/Cart_Three.jpg";
 import Cart_Four from "../assets/Cart_Four.jpg";
 import Cart_Five from "../assets/Cart_Five.jpg";
 import Cart_Six from "../assets/Cart_Six.jpg";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHomeProperty } from "../Redux/productSlice";
 const MarketPlace = () => {
+  const homeProduct = useSelector((state) => state.product.home_product);
+  const isLoading = useSelector((state) => state.product.loading);
+  const error = useSelector((state) => state.product.error);
+  console.log(`Error is ${error}`);
+  console.log(homeProduct);
+  console.log(`Loading is ${isLoading}`);
+  const dispatch = useDispatch();
+
   const [location, setLocation] = useState("");
   const handleLocationSubmit = (e: any) => {
     e.preventDefault();
     console.log(input);
   };
   useEffect(() => {
+    dispatch(fetchHomeProperty());
     AOS.init({ duration: 3000 });
   }, []);
   return (
@@ -66,129 +76,49 @@ const MarketPlace = () => {
           </form>
         </div>
         <div className="mt-8">
-          <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-col sm:gap-7 tab:grid-cols-2 ">
-           
-            <div className="rounded-md cursor-pointer  transition-all hover:bg-white hover:shadow-md hover:border">
-              <img src={Cart_One} className="h-[190px] w-full" alt="" />
-              <div className="flex flex-col gap-1 bg-white px-2 py-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <h3 className="text-purple-600 font-bold text-lg">
-                      $2,095
-                    </h3>
-                    <p className="text-slate-500 text-sm">/month</p>
-                  </div>
-                  <div className="px-2 py-2 border rounded-full">
-                    <MdFavoriteBorder className=" text-purple-500" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold">Palm Harbour</h3>
-                <p className="text-xs text-slate-700">
-                  2699 Green Valley, Highland Lake, FL
-                </p>
-              </div>
-            </div>
-            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
-              <img src={Cart_Two} className="h-[190px] w-full" alt="" />
-              <div className="flex flex-col gap-1 bg-white px-2 py-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <h3 className="text-purple-600 font-bold text-lg">
-                      $2,095
-                    </h3>
-                    <p className="text-slate-500 text-sm">/month</p>
-                  </div>
-                  <div className="px-2 py-2 border rounded-full">
-                    <MdFavoriteBorder className=" text-purple-500" />
+          {homeProduct && (
+            <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-col sm:gap-7 tab:grid-cols-2 ">
+              {homeProduct.data?.product?.map((value, index) => (
+                <div
+                  key={index}
+                  className="rounded-md cursor-pointer  transition-all hover:bg-white hover:shadow-md hover:border"
+                >
+                  <img
+                    src={value.imageUrls}
+                    className="h-[190px] w-full"
+                    alt=""
+                  />
+                  <div className="flex flex-col gap-1 bg-white px-2 py-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <h3 className="text-purple-600 font-bold text-lg">
+                          ${value.price}
+                        </h3>
+                        <p className="text-slate-500 text-sm">/month</p>
+                      </div>
+                      <div className="px-2 py-2 border rounded-full">
+                        <MdFavoriteBorder className=" text-purple-500" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold">{value.name}</h3>
+                    <p className="text-xs text-slate-700">{value.address}</p>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold">Palm Harbour</h3>
-                <p className="text-xs text-slate-700">
-                  2699 Green Valley, Highland Lake, FL
-                </p>
-              </div>
+              ))}
             </div>
-            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
-              <img src={Cart_Three} className="h-[190px] w-full" alt="" />
-              <div className="flex flex-col gap-1 bg-white px-2 py-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <h3 className="text-purple-600 font-bold text-lg">
-                      $2,095
-                    </h3>
-                    <p className="text-slate-500 text-sm">/month</p>
-                  </div>
-                  <div className="px-2 py-2 border rounded-full">
-                    <MdFavoriteBorder className=" text-purple-500" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold">Palm Harbour</h3>
-                <p className="text-xs text-slate-700">
-                  2699 Green Valley, Highland Lake, FL
-                </p>
-              </div>
+          )}
+          {isLoading && (
+            <div className="h-[200px] w-full flex items-center justify-center">
+              <h3 className="text-center">Loading Items</h3>
             </div>
-            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
-              <img src={Cart_Four} className="h-[190px] w-full" alt="" />
-              <div className="flex flex-col gap-1 bg-white px-2 py-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <h3 className="text-purple-600 font-bold text-lg">
-                      $2,095
-                    </h3>
-                    <p className="text-slate-500 text-sm">/month</p>
-                  </div>
-                  <div className="px-2 py-2 border rounded-full">
-                    <MdFavoriteBorder className=" text-purple-500" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold">Palm Harbour</h3>
-                <p className="text-xs text-slate-700">
-                  2699 Green Valley, Highland Lake, FL
-                </p>
-              </div>
+          )}
+          {error && (
+            <div className="h-[200px] w-full flex items-center justify-center">
+              <h3 className="text-center text-red-500">
+                An Error Occured while fetching items
+              </h3>
             </div>
-            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
-              <img src={Cart_Five} className="h-[190px] w-full" alt="" />
-              <div className="flex flex-col gap-1 bg-white px-2 py-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <h3 className="text-purple-600 font-bold text-lg">
-                      $2,095
-                    </h3>
-                    <p className="text-slate-500 text-sm">/month</p>
-                  </div>
-                  <div className="px-2 py-2 border rounded-full">
-                    <MdFavoriteBorder className=" text-purple-500" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold">Palm Harbour</h3>
-                <p className="text-xs text-slate-700">
-                  2699 Green Valley, Highland Lake, FL
-                </p>
-              </div>
-            </div>
-            <div className="rounded-md cursor-pointer transition-all hover:bg-white hover:shadow-md hover:border">
-              <img src={Cart_Six} className="h-[190px] w-full" alt="" />
-              <div className="flex flex-col gap-1 bg-white px-2 py-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <h3 className="text-purple-600 font-bold text-lg">
-                      $2,095
-                    </h3>
-                    <p className="text-slate-500 text-sm">/month</p>
-                  </div>
-                  <div className="px-2 py-2 border rounded-full">
-                    <MdFavoriteBorder className=" text-purple-500" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold">Palm Harbour</h3>
-                <p className="text-xs text-slate-700">
-                  2699 Green Valley, Highland Lake, FL
-                </p>
-              </div>
-            </div>
-          </div>
+          )}
           <div className="flex items-center justify-center mt-10">
             <Link
               className=" bg-[#7065F0] sm:w-full flex justify-center items-center rounded-md"
