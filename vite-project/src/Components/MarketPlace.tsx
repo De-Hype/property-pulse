@@ -67,7 +67,7 @@ const MarketPlace = () => {
         </div>
         <div className="mt-8">
           <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-col sm:gap-7 tab:grid-cols-2 ">
-            
+           
             <div className="rounded-md cursor-pointer  transition-all hover:bg-white hover:shadow-md hover:border">
               <img src={Cart_One} className="h-[190px] w-full" alt="" />
               <div className="flex flex-col gap-1 bg-white px-2 py-2">

@@ -10,7 +10,7 @@ router.patch('update-listing/:id', UpdateListing)
 router.post('/create-listing', upload.single("image"), CreateListing);
 router.get('/search', SearchResultListing);
 router.get('/search-location', SearchListingByLocation);
-router.get('homepage-listing', GetHomePageListing);
-router.get('store-listing', GetStoreListing);
-
+router.get('/homepage-listing', GetHomePageListing);
+router.get('/store-listing', GetStoreListing);
+ 
 module.exports = router;

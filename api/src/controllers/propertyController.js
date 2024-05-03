@@ -6,6 +6,7 @@ const {
   getDownloadURL,
   uploadBytesResumable,
 } = require("firebase/storage");
+const path = require("path");
 const Property = require("../models/property");
 const AppError = require("../utils/AppError");
 const catchAsync = require("../utils/catchAsync");
@@ -27,15 +28,19 @@ module.exports.CreateListing = catchAsync(async (req, res, next) => {
     return next(new AppError(`Listing with name ${name} already exist`, 400));
   }
   const file = req.file;
-  const filename = crypto.randomBytes(16).toString("hex");
+  const filename = crypto.randomBytes(16).toString("hex") + path.extname(file.originalname);
   initializeApp(firebaseConfig);
+ 
   const storage = getStorage();
+  
   const metadata = {
     contentType: req.file.mimetype,
   };
   const storageRef = ref(storage, filename);
-  const snapshot = await uploadBytesResumable(storageRef, file, metadata);
+  const snapshot = await uploadBytesResumable(storageRef, file.buffer, metadata);
+  
   const downloadURL = await getDownloadURL(snapshot.ref);
+  
   const createdProduct = await Property.create({
     name: value.name,
     description: value.description,
@@ -92,7 +97,6 @@ module.exports.UpdateListing = catchAsync(async (req, res, next) => {
 module.exports.DeleteListing = catchAsync(async (req, res, next) => {
   const deletedListing = await Property.findOneAndDelete({
     _id: req.params.id,
-    poster: req.cookie.user_auth,
   });
   if (!deletedListing) {
     return next(
@@ -113,7 +117,7 @@ module.exports.GetHomePageListing = catchAsync(async (req, res, next) => {
   const { limit } = req.query;
   const home_product = await Property.find().limit(limit || 6);
   if (home_product.length == 0) {
-    return next(new AppError("No produuct has been found", 401));
+    return next(new AppError("No product has been found", 401));
   }
   res.status(200).json({
     status: "ok",
@@ -182,4 +186,10 @@ module.exports.GetStoreListing = catchAsync(async (req, res, next) => {
     };
   }
   results.results = await Property.find().limit(limit).skip(startIndex).exec();
+  res.status(200).json({
+    status: "ok",
+    success: true,
+    message: "Product fetched successfully",
+    results:results
+  });
 });
