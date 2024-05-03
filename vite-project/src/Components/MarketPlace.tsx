@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 import { AiOutlineHome, AiOutlineKey, AiOutlineSearch } from "react-icons/ai";
 import { MdFavoriteBorder } from "react-icons/md";
 import { Link } from "react-router-dom";
-import Cart_One from "../assets/Cart_One.jpg";
+import noBrain from "../assets/noBrain.gif";
 import Cart_Two from "../assets/Cart_Two.jpg";
 import Cart_Three from "../assets/Cart_Three.jpg";
 import Cart_Four from "../assets/Cart_Four.jpg";
@@ -109,7 +109,11 @@ const MarketPlace = () => {
           )}
           {isLoading && (
             <div className="h-[200px] w-full flex items-center justify-center">
-              <h3 className="text-center">Loading Items</h3>
+              <img
+                    src={noBrain}
+                    className="h-full w-[150px]"
+                    alt=""
+                  />
             </div>
           )}
           {error && (
