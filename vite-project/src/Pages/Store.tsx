@@ -13,10 +13,15 @@ import Footer from "../Components/Footer";
 import { useState, useEffect } from "react";
 import { AiOutlineFilter } from "react-icons/ai";
 import Filter from "../Components/Filter";
-import { storeListing } from "../Redux/productSlice";
+import {
+  decrementPage,
+  incrementPage,
+  storeListing,
+} from "../Redux/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilterState } from "../Redux/actionSlice";
 import { toast } from "sonner";
+import Loader from "../Components/Loader";
 const Store = () => {
   const [input, setInput] = useState("");
   const [filterNumber, setFilterNumber] = useState(1);
@@ -27,16 +32,22 @@ const Store = () => {
     (state: any) => state.product.store_listing
   );
   const isLoading = useSelector((state: any) => state.product.loading);
+  const currentPage = useSelector((state) => state.product.currentPage);
   const error = useSelector((state: any) => state.product.error);
-  console.log(`Error is ${error}`);
-  console.log(store_listing);
-  console.log(`Loading is ${isLoading}`);
+
   useEffect(() => {
-    dispatch(storeListing());
-  }, []);
+    dispatch(storeListing({ page: currentPage }));
+  }, [currentPage]);
   const OpenModal = () => {
     dispatch(changeFilterState());
     setFilterNumber(2);
+  };
+  const SeeMoreProduct = () => {
+    if (store_listing.data.results.length == 6) {
+      dispatch(incrementPage());
+    } else if (store_listing.data.results.length != 6) {
+      dispatch(decrementPage());
+    }
   };
 
   const handleSearchSubmit = (e: any) => {
@@ -129,27 +140,32 @@ const Store = () => {
               </div>
             )}
             {isLoading && (
-            <div className="h-[200px] w-full flex items-center justify-center">
-              <h3 className="text-center">Loading Items</h3>
-            </div>
-          )}
-          {error &&  (
-            <div className="h-[200px] w-full flex items-center justify-center">
-              <h3 className="text-center text-red-500">
-                An error occured while fetching store items
-              </h3>
-            </div>
-          )}
-            <div className="flex items-center justify-center mt-10">
-              <div className=" bg-[#7065F0] sm:w-full flex justify-center items-center rounded-md">
-                <button
-                  className=" px-4 py-2 rounded-md outline-none  text-white tab:"
-                  type="button"
-                >
-                  Browse Properties
-                </button>
+              <div className="h-[250px] w-full flex items-center justify-center">
+                <Loader />
               </div>
-            </div>
+            )}
+            {error && (
+              <div className="h-[200px] w-full flex items-center justify-center">
+                <h3 className="text-center text-red-500">
+                  An error occured while fetching store items
+                </h3>
+              </div>
+            )}
+            {store_listing && (
+              <div className="flex items-center justify-center mt-10">
+                <div
+                  onClick={SeeMoreProduct}
+                  className=" bg-[#7065F0] sm:w-full flex justify-center items-center rounded-md"
+                >
+                  <button
+                    className=" px-4 py-2 rounded-md outline-none  text-white tab:"
+                    type="button"
+                  >
+                    Browse Properties
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <Footer />

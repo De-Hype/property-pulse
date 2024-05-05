@@ -28,19 +28,24 @@ module.exports.CreateListing = catchAsync(async (req, res, next) => {
     return next(new AppError(`Listing with name ${name} already exist`, 400));
   }
   const file = req.file;
-  const filename = crypto.randomBytes(16).toString("hex") + path.extname(file.originalname);
+  const filename =
+    crypto.randomBytes(16).toString("hex") + path.extname(file.originalname);
   initializeApp(firebaseConfig);
- 
+
   const storage = getStorage();
-  
+
   const metadata = {
     contentType: req.file.mimetype,
   };
   const storageRef = ref(storage, filename);
-  const snapshot = await uploadBytesResumable(storageRef, file.buffer, metadata);
-  
+  const snapshot = await uploadBytesResumable(
+    storageRef,
+    file.buffer,
+    metadata
+  );
+
   const downloadURL = await getDownloadURL(snapshot.ref);
-  
+
   const createdProduct = await Property.create({
     name: value.name,
     description: value.description,
@@ -112,6 +117,20 @@ module.exports.DeleteListing = catchAsync(async (req, res, next) => {
     message: "Listing has been deleted succesfully",
   });
 });
+module.exports.AboutListingDetails = catchAsync(async (req, res, next) => {
+  const listing_details = await Property.findOne({ _id: req.params.id });
+  if (!listing_details) {
+    return next(
+      new AppError(`Listing with ID : ${req.params.id}  not found`, 403)
+    );
+  }
+  res.status(200).json({
+    status: "ok",
+    success: true,
+    message: "Listing details has beeen fetched succesfully",
+    listing_details: listing_details,
+  });
+});
 
 module.exports.GetHomePageListing = catchAsync(async (req, res, next) => {
   const { limit } = req.query;
@@ -168,7 +187,7 @@ module.exports.SearchListingByLocation = catchAsync(async (req, res, next) => {
   });
 });
 module.exports.GetStoreListing = catchAsync(async (req, res, next) => {
-  const page = parseInt(req.query.page)|| 1;
+  const page = parseInt(req.query.page) || 1;
   const limit = req.query.limit || 6;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
@@ -190,6 +209,6 @@ module.exports.GetStoreListing = catchAsync(async (req, res, next) => {
     status: "ok",
     success: true,
     message: "Product fetched successfully",
-    results:results
+    results: results,
   });
 });

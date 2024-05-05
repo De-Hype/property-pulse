@@ -1,4 +1,4 @@
-const { GetListingByUser, DeleteListing, UploadImage, CreateListing, SearchResultListing, GetHomePageListing, UpdateListing, GetStoreListing, SearchListingByLocation } = require('../controllers/propertyController');
+const { GetListingByUser, DeleteListing, UploadImage, CreateListing, SearchResultListing, GetHomePageListing, UpdateListing, GetStoreListing, SearchListingByLocation, AboutListingDetails } = require('../controllers/propertyController');
 const upload = require('../utils/multer');
 
 const router = require('express').Router();
@@ -8,6 +8,7 @@ const router = require('express').Router();
 router.delete('/delete-listing/:id', DeleteListing);
 router.patch('update-listing/:id', UpdateListing)
 router.post('/create-listing', upload.single("image"), CreateListing);
+router.get("/about-listing/:id", AboutListingDetails)
 router.get('/search', SearchResultListing);
 router.get('/search-location', SearchListingByLocation);
 router.get('/homepage-listing', GetHomePageListing);

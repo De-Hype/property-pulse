@@ -14,6 +14,7 @@ import Cart_Five from "../assets/Cart_Five.jpg";
 import Cart_Six from "../assets/Cart_Six.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHomeProperty } from "../Redux/productSlice";
+import Loader from "./Loader";
 const MarketPlace = () => {
   const homeProduct = useSelector((state) => state.product.home_product);
   const isLoading = useSelector((state) => state.product.loading);
@@ -108,12 +109,13 @@ const MarketPlace = () => {
             </div>
           )}
           {isLoading && (
-            <div className="h-[200px] w-full flex items-center justify-center">
-              <h3 className="text-center">Loading Items</h3>
+            <div className="h-[250px] w-full flex items-center justify-center">
+                            <Loader/>
             </div>
           )}
           {error && (
-            <div className="h-[200px] w-full flex items-center justify-center">
+            <div className="h-[250px] w-full flex items-center justify-center">
+
               <h3 className="text-center text-red-500">
                 An Error Occured while fetching items
               </h3>

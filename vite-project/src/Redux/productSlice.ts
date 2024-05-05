@@ -10,6 +10,13 @@ export const fetchHomeProperty = createAsyncThunk<AxiosResponse<any>, undefined,
         console.log(results)
         return results
     }
+) 
+
+export const fetchAboutListing = createAsyncThunk<AxiosResponse<any>,{id:string}, {rejectValue:string}>(
+    "product/about/id", async({id})=>{
+        const results = await axios.get(`https://estatery-m505.onrender.com/v1/api/property/about-listing/${id}`);
+        return results
+    }
 )  
 
 export const searchResultProperty = createAsyncThunk<AxiosResponse<any>, undefined, {rejectValue:string}>(
@@ -26,10 +33,9 @@ export const searchListingByLocation = createAsyncThunk<AxiosResponse<any>, unde
     }
 ) 
 
-export const storeListing = createAsyncThunk<AxiosResponse<any>, undefined, {rejectValue:string}>(
-    "product/store", async()=>{
-        const results = await axios.get(`https://estatery-m505.onrender.com/v1/api/property/store-listing`);
-       
+export const storeListing = createAsyncThunk<AxiosResponse<any>,{page:number}, {rejectValue:string}>(
+    "product/store", async({page})=>{
+        const results = await axios.get(`https://estatery-m505.onrender.com/v1/api/property/store-listing?page=${page}`);
         return results
     }
 )   
@@ -39,16 +45,20 @@ export interface productState{
     search_result:any[]
     search_location_listing:any[]
     store_listing:any
+    about_listing:any
+    currentPage:number
     error:string
     loading:boolean
 }
 const initialState : productState = {
     error:"",
+    currentPage:1,
     loading: false,
     home_product:null,
     search_result:[],
     search_location_listing:[],
-    store_listing:null
+    store_listing:null,
+    about_listing:null
 }
 export const productSlice = createSlice({
     name:'product',
@@ -57,6 +67,12 @@ export const productSlice = createSlice({
         seeSearchResult:(state, action) =>{
             state.search_result = action.payload;
         },
+        incrementPage:(state)=>{
+            ++state.currentPage;
+        },
+        decrementPage:(state)=>{
+            --state.currentPage
+        }
     },
     extraReducers:(builder)=> {
         builder.addCase(fetchHomeProperty.pending, (state)=>{
@@ -67,6 +83,19 @@ export const productSlice = createSlice({
             state.error = "";
             state.home_product = action.payload;
             
+        })
+        builder.addCase(fetchAboutListing.pending, (state)=>{
+            state.loading = true;
+        })
+        builder.addCase(fetchAboutListing.fulfilled, (state, action)=>{
+            state.loading = false;
+            state.error = "";
+            state.about_listing = action.payload;
+            
+        })
+        builder.addCase(fetchAboutListing.rejected, (state, action)=>{
+            state.loading = false;
+            state.error = `${action.payload}`
         })
         builder.addCase(fetchHomeProperty.rejected, (state, action)=>{
             state.loading = false;
@@ -111,5 +140,5 @@ export const productSlice = createSlice({
     },
 })
 
-export const {seeSearchResult}=productSlice.actions;
+export const {seeSearchResult, incrementPage, decrementPage}=productSlice.actions;
 export default productSlice.reducer;

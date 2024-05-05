@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import Cart_One from "../assets/Cart_One.jpg";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Components/Loader";
 const AboutListing = () => {
+  const isLoading = useSelector((state: any) => state.product.loading);
+  const about_listing = useSelector((state: any) => state.product.about_listing);
+  const error = useSelector((state: any) => state.product.error);
   return (
     <div className=" min-h-screen">
       <Header />
@@ -14,6 +19,9 @@ const AboutListing = () => {
         >
           <AiOutlineHome className="text-2xl" /> <span>Go Back</span>
         </Link>
+        {
+          about_listing && 
+        
         <div className="w-full px-4 flex items-center  gap-4 tab:flex-col relative">
           <div className="h-[500px] tab:h-[270px] w-1/2 tab:w-full">
             <img src={Cart_One} className="h-full w-full" alt="" />
@@ -53,6 +61,19 @@ const AboutListing = () => {
             Rent
           </span>
         </div>
+        }
+        {
+          isLoading &&
+          <div className="min-h-[60vh] w-full grid place-items-center">
+            <Loader />
+          </div>
+        }
+        {
+          error && 
+          <div className="min-h-[60vh] w-full grid place-items-center">
+            <h3 className="text-red-500 text-center">Error occured while fetching listing details</h3>
+          </div>
+        }
       </div>
       <div className="bg-purple-50">
         <Footer />
